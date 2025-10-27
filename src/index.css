@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply font-sans bg-slate-950 text-slate-100 antialiased;
+}
+
+::selection {
+  background: rgba(124, 58, 237, 0.35);
+}
+
+.bg-grid-soft {
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 0),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 0);
+  background-size: 60px 60px;
+}
+
+.blur-glow {
+  filter: blur(110px);
+  opacity: 0.55;
+}
+
+.glass-card {
+  background: linear-gradient(140deg, rgba(15, 23, 42, 0.68), rgba(30, 41, 59, 0.25));
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.tag-pill {
+  background: linear-gradient(130deg, rgba(124, 58, 237, 0.18), rgba(34, 211, 238, 0.14));
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.65);
+}
+
+.tech-orbit {
+  position: relative;
+  isolation: isolate;
+}
+
+.tech-orbit::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(34, 211, 238, 0.18), transparent 60%);
+  opacity: 0;
+  transform: scale(0.65);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  z-index: -1;
+}
+
+.tech-orbit:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}

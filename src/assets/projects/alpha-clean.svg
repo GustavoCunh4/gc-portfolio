@@ -1,0 +1,70 @@
+<svg width="1200" height="780" viewBox="0 0 1200 780" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="780" rx="48" fill="url(#paint0_linear_alpha)" />
+  <rect width="1200" height="780" rx="48" fill="url(#paint1_radial_alpha)" />
+  <g filter="url(#filter0_f_alpha)">
+    <ellipse cx="330" cy="194" rx="206" ry="98" fill="#7C3AED" fill-opacity="0.45" />
+  </g>
+  <g filter="url(#filter1_f_alpha)">
+    <ellipse cx="973" cy="493" rx="206" ry="131" fill="#22D3EE" fill-opacity="0.38" />
+  </g>
+  <rect x="140" y="144" width="400" height="56" rx="28" fill="#0F172A" fill-opacity="0.58" stroke="rgba(255,255,255,0.2)" />
+  <text x="166" y="182" fill="#C4DDFF" font-size="20" font-family="'Manrope', sans-serif" letter-spacing="0.35em">ALPHA CLEAN</text>
+  <text x="150" y="292" fill="#E2F3FF" font-size="82" font-family="'Space Grotesk', sans-serif" font-weight="700">Seu carro</text>
+  <text x="150" y="372" fill="#BBF7D0" font-size="96" font-family="'Space Grotesk', sans-serif" font-weight="700">Sempre impecável</text>
+  <text x="150" y="440" fill="rgba(226, 232, 240, 0.75)" font-size="20" font-family="'Manrope', sans-serif" letter-spacing="0.02em">
+    Lava jato profissional com técnicas premium, atendimento rápido e cuidado completo.
+  </text>
+  <g filter="url(#filter2_d_alpha)">
+    <rect x="150" y="484" width="170" height="54" rx="27" fill="#22C55E" />
+    <text x="190" y="520" fill="white" font-size="18" font-family="'Manrope', sans-serif">Agendar</text>
+  </g>
+  <rect x="338" y="484" width="170" height="54" rx="27" stroke="rgba(148, 163, 184, 0.4)" fill="rgba(2, 6, 23, 0.4)" />
+  <text x="382" y="518" fill="#94A3B8" font-size="18" font-family="'Manrope', sans-serif">Ver serviços</text>
+  <g filter="url(#filter3_d_alpha)">
+    <rect x="708" y="208" width="320" height="360" rx="36" fill="rgba(2, 6, 23, 0.45)" stroke="rgba(148,163,184,0.4)" />
+    <g transform="translate(738 242)">
+      <rect width="260" height="90" rx="24" fill="rgba(24, 35, 52, 0.85)" />
+      <circle cx="36" cy="45" r="24" fill="#22C55E" />
+      <text x="78" y="44" fill="#F8FAFC" font-size="22" font-family="'Manrope', sans-serif" font-weight="600">Qualidade Garantida</text>
+      <text x="78" y="68" fill="#CBD5F5" font-size="16" font-family="'Manrope', sans-serif">Produtos profissionais</text>
+    </g>
+    <g transform="translate(738 352)">
+      <rect width="260" height="90" rx="24" fill="rgba(24, 35, 52, 0.85)" />
+      <circle cx="36" cy="45" r="24" fill="#A855F7" />
+      <text x="78" y="44" fill="#F8FAFC" font-size="22" font-family="'Manrope', sans-serif" font-weight="600">Atendimento rápido</text>
+      <text x="78" y="68" fill="#CBD5F5" font-size="16" font-family="'Manrope', sans-serif">Sem perder qualidade</text>
+    </g>
+    <g transform="translate(738 462)">
+      <rect width="260" height="90" rx="24" fill="rgba(24, 35, 52, 0.85)" />
+      <circle cx="36" cy="45" r="24" fill="#0EA5E9" />
+      <text x="78" y="44" fill="#F8FAFC" font-size="22" font-family="'Manrope', sans-serif" font-weight="600">Cuidado completo</text>
+      <text x="78" y="68" fill="#CBD5F5" font-size="16" font-family="'Manrope', sans-serif">Detalhamento premium</text>
+    </g>
+  </g>
+  <defs>
+    <filter id="filter0_f_alpha" x="0" y="-84" width="660" height="556" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="60" />
+    </filter>
+    <filter id="filter1_f_alpha" x="662" y="252" width="622" height="482" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="68" />
+    </filter>
+    <filter id="filter2_d_alpha" x="134" y="472" width="202" height="86" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="8" />
+      <feGaussianBlur stdDeviation="12" />
+      <feBlend mode="normal" in2="SourceGraphic" result="shape" />
+    </filter>
+    <filter id="filter3_d_alpha" x="676" y="180" width="384" height="432" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feOffset dy="8" />
+      <feGaussianBlur stdDeviation="16" />
+      <feBlend mode="normal" in2="SourceGraphic" result="shape" />
+    </filter>
+    <linearGradient id="paint0_linear_alpha" x1="64" y1="40" x2="1112" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1120" />
+      <stop offset="1" stop-color="#040715" />
+    </linearGradient>
+    <radialGradient id="paint1_radial_alpha" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(294 120) rotate(24) scale(650 480)">
+      <stop stop-color="#102A43" stop-opacity="0.86" />
+      <stop offset="1" stop-color="#020617" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+</svg>
