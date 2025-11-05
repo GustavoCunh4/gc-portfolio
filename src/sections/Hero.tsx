@@ -177,12 +177,14 @@ export function Hero({ motionStyle, className, contentReady = true }: HeroProps 
               href={whatsappHref}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-3 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white/85 transition hover:border-white/35 hover:text-white"
+              className="button-whatsapp button-whatsapp--primary"
               data-cursor="interactive"
               aria-label={hero.secondaryCta}
             >
-              <WhatsAppIcon className="w-4" />
-              <span>{hero.secondaryCta}</span>
+              <span className="button-whatsapp-icon">
+                <WhatsAppIcon alt="" />
+              </span>
+              <span className="button-whatsapp-label">{hero.secondaryCta}</span>
             </a>
           </motion.div>
 

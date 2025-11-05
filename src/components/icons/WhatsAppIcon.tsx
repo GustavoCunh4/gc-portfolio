@@ -1,23 +1,11 @@
+import whatsappIconUrl from '../../assets/whatsapp.svg'
+
 type WhatsAppIconProps = {
   className?: string
+  alt?: string
 }
 
-export function WhatsAppIcon({ className }: WhatsAppIconProps = {}) {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 24 24"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      className={className}
-    >
-      <path
-        d="M12.02 3a8.54 8.54 0 0 0-7.44 12.75l-0.82 3.02 3.1-0.82A8.53 8.53 0 1 0 12.02 3Zm0 1.6a6.93 6.93 0 1 1 0 13.86 6.88 6.88 0 0 1-3.52-0.95l-0.25-0.15-1.84 0.49 0.49-1.82-0.16-0.26a6.95 6.95 0 0 1 5.28-11.17Zm3.12 3.9c-0.16-0.42-0.32-0.43-0.47-0.44h-0.4c-0.14 0-0.36 0.05-0.55 0.27-0.19 0.21-0.72 0.7-0.72 1.72 0 1.02 0.73 2.01 0.83 2.15 0.1 0.14 1.44 2.22 3.54 3.03 1.75 0.69 2.1 0.55 2.48 0.52 0.38-0.03 1.22-0.5 1.39-0.99 0.17-0.49 0.17-0.92 0.12-0.99-0.05-0.07-0.19-0.12-0.4-0.21-0.21-0.09-1.22-0.6-1.41-0.67-0.19-0.07-0.33-0.1-0.47 0.1-0.14 0.2-0.54 0.67-0.66 0.81-0.12 0.14-0.24 0.15-0.45 0.05-0.21-0.1-0.88-0.33-1.68-1.05-0.62-0.55-1.04-1.23-1.16-1.44-0.12-0.2-0.01-0.31 0.09-0.4 0.09-0.09 0.21-0.24 0.32-0.36 0.11-0.12 0.14-0.21 0.21-0.35 0.07-0.14 0.04-0.27-0.02-0.38-0.05-0.11-0.46-1.14-0.63-1.56Z"
-        fill="currentColor"
-      />
-    </svg>
-  )
+export function WhatsAppIcon({ className, alt = 'WhatsApp' }: WhatsAppIconProps = {}) {
+  return <img src={whatsappIconUrl} alt={alt} className={className} loading="lazy" />
 }
 

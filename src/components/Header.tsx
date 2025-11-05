@@ -162,12 +162,14 @@ export function Header() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="button-premium ml-1 shadow-surface-glow"
+                className="button-whatsapp button-whatsapp--compact ml-1"
                 data-cursor="interactive"
                 aria-label={content.whatsappLabel}
               >
-                <WhatsAppIcon />
-                <span>{content.whatsappLabel}</span>
+                <span className="button-whatsapp-icon">
+                  <WhatsAppIcon alt="" />
+                </span>
+                <span className="button-whatsapp-label">{content.whatsappLabel}</span>
               </a>
             </div>
           </div>
@@ -234,13 +236,15 @@ export function Header() {
                   href={whatsappHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="button-premium inline-flex justify-center"
+                  className="button-whatsapp button-whatsapp--compact justify-center"
                   data-cursor="interactive"
                   onClick={() => setOpen(false)}
                   aria-label={content.whatsappLabel}
                 >
-                  <WhatsAppIcon />
-                  <span>{content.whatsappLabel}</span>
+                  <span className="button-whatsapp-icon">
+                    <WhatsAppIcon alt="" />
+                  </span>
+                  <span className="button-whatsapp-label">{content.whatsappLabel}</span>
                 </a>
               </div>
             </motion.nav>

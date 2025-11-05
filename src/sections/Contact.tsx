@@ -83,7 +83,7 @@ export function Contact() {
                 href={social.url}
                 target="_blank"
                 rel="noreferrer"
-                className={`tag-pill transition hover:brightness-110 ${social.isWhatsapp ? 'border-gc-secondary/60 text-white hover:border-gc-secondary/80' : ''}`}
+                className={`tag-pill transition hover:brightness-110 ${social.isWhatsapp ? 'border-white/40 bg-gc-secondary/20 text-white hover:border-white/70' : ''}`}
                 data-cursor="interactive"
               >
                 {social.isWhatsapp && <WhatsAppIcon className="h-4 w-4" />}
@@ -101,12 +101,14 @@ export function Contact() {
                 href={whatsappHref}
                 target="_blank"
                 rel="noreferrer"
-                className="button-premium inline-flex"
+                className="button-whatsapp button-whatsapp--primary"
                 data-cursor="interactive"
                 aria-label={contact.whatsappCta}
               >
-                <WhatsAppIcon />
-                <span>{contact.whatsappCta}</span>
+                <span className="button-whatsapp-icon">
+                  <WhatsAppIcon alt="" />
+                </span>
+                <span className="button-whatsapp-label">{contact.whatsappCta}</span>
               </a>
               <span className="text-xs uppercase tracking-[0.3em] text-slate-400">{WHATSAPP_DISPLAY_NUMBER}</span>
             </div>
