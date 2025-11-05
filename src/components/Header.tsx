@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import type { Language } from '../contexts/LanguageContext'
 import { useLanguage } from '../contexts/LanguageContext'
+import gcLogo from '../assets/gc-logo.png'
 import { WHATSAPP_PHONE_LINK } from '../constants'
 import { useContent, useScrollProgress } from '../hooks'
 import { WhatsAppIcon } from './icons/WhatsAppIcon'
@@ -120,7 +121,7 @@ export function Header() {
               whileTap={{ rotate: -4, scale: 0.95 }}
               transition={{ type: 'spring', stiffness: 320, damping: 18 }}
             >
-              <img src="/src/assets/gc-logo.png" alt="Logotipo GC" className="h-full w-full object-contain" />
+              <img src={gcLogo} alt="Logotipo GC" className="h-full w-full object-contain" />
             </motion.span>
             <div className="flex flex-col leading-tight">
               <span className="font-display text-lg font-semibold text-white">Gustavo Cunha</span>
