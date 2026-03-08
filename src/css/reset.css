@@ -1,0 +1,8 @@
+/* reset.css */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 600vh; scroll-behavior: smooth; }
+body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); overflow-x: hidden; cursor: none; -webkit-font-smoothing: antialiased; }
+button { border: none; background: none; font-family: inherit; cursor: none; }
+a { cursor: none; color: inherit; }
+ul { list-style: none; }
+img, canvas { display: block; }

@@ -1,0 +1,6 @@
+/* base.css */
+#c { position: fixed; inset: 0; z-index: var(--z-canvas); width: 100vw; height: 100vh; }
+@keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes bounce   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+@keyframes pulse    { 0%,100%{opacity:.5} 50%{opacity:1} }
+@keyframes scanline { 0%{transform:translateY(-100%)} 100%{transform:translateY(100vh)} }

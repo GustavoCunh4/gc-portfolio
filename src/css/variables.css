@@ -1,0 +1,26 @@
+/* variables.css — Design Tokens */
+:root {
+  --color-bg:           #030810;
+  --color-surface:      #0a1628;
+  --color-border:       rgba(0,200,255,0.12);
+  --color-border-hover: rgba(0,200,255,0.4);
+  --color-cyan:         #00c8ff;
+  --color-cyan2:        #00e5ff;
+  --color-blue:         #0044ff;
+  --color-text:         #e8f0fe;
+  --color-muted:        rgba(255,255,255,0.45);
+  --color-dim:          rgba(255,255,255,0.22);
+  --font-body:    'Outfit', sans-serif;
+  --font-mono:    'Space Mono', monospace;
+  --radius-sm:  6px;
+  --radius-md:  12px;
+  --radius-lg:  18px;
+  --radius-pill: 50px;
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.55s ease;
+  --glow-cyan:   0 0 22px rgba(0,200,255,0.45);
+  --glow-sm:     0 0 10px rgba(0,200,255,0.25);
+  --shadow-card: 0 20px 55px rgba(0,0,0,0.55), 0 0 35px rgba(0,200,255,0.05);
+  --z-canvas: 0; --z-panels: 400; --z-hud: 500; --z-nav: 600; --z-cursor: 9999;
+}

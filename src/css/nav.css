@@ -1,0 +1,66 @@
+/* nav.css */
+#main-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-nav);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.2rem 2.5rem;
+  background: linear-gradient(180deg, rgba(3,8,16,.92) 0%, transparent 100%);
+  backdrop-filter: blur(6px);
+}
+.nav-logo {
+  display: flex; align-items: center;
+  font-family: var(--font-mono); font-weight: 700; font-size: 1.1rem;
+  color: var(--color-cyan); text-decoration: none; letter-spacing: .1em;
+  transition: opacity var(--transition-base);
+}
+.nav-logo:hover { opacity: .75; }
+.nav-logo-img { height: 28px; width: auto; display: block; }
+.nav-right { display: flex; align-items: center; gap: 2rem; }
+.nav-links  { display: flex; gap: 2rem; }
+.nav-links a {
+  font-family: var(--font-mono); font-size: .65rem;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--color-muted); text-decoration: none;
+  transition: color var(--transition-base);
+}
+.nav-links a:hover { color: var(--color-cyan); }
+.nav-btn {
+  font-family: var(--font-mono); font-size: .65rem; letter-spacing: .1em;
+  text-transform: uppercase; border: 1px solid rgba(0,200,255,.4);
+  color: var(--color-cyan); background: transparent; padding: .5rem 1.1rem;
+  transition: background var(--transition-base), box-shadow var(--transition-base);
+  border-radius: 4px;
+}
+.nav-btn:hover { background: rgba(0,200,255,.1); box-shadow: var(--glow-sm); }
+
+/* Language switch */
+.lang-switch {
+  display: flex; align-items: center; gap: .35rem;
+  padding: .2rem; border-radius: 999px;
+  border: 1px solid rgba(0,200,255,.25);
+  background: rgba(0,200,255,.06);
+}
+.lang-btn {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .3rem .6rem; border-radius: 999px;
+  font-family: var(--font-mono); font-size: .6rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--color-muted);
+  transition: color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
+}
+.lang-btn.is-active {
+  color: var(--color-cyan);
+  background: rgba(0,200,255,.16);
+  box-shadow: var(--glow-sm);
+}
+.flag-emoji { font-size: .8rem; line-height: 1; }
+.lang-code { line-height: 1; }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  padding: .4rem; background: transparent; border: none; z-index: 10;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--color-cyan); border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}

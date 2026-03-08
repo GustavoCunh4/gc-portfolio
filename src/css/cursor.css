@@ -1,0 +1,26 @@
+/* cursor.css */
+#cur {
+  position: fixed; width: 6px; height: 6px;
+  background: var(--color-cyan); border-radius: 50%;
+  pointer-events: none; z-index: var(--z-cursor);
+  transform: translate(-50%,-50%);
+  box-shadow: 0 0 10px rgba(0,200,255,.7);
+  transition: width .15s, height .15s, background .15s, box-shadow .15s;
+}
+#cur-r {
+  position: fixed; width: 28px; height: 28px;
+  border: 2px solid var(--color-cyan); border-radius: 50%;
+  pointer-events: none; z-index: calc(var(--z-cursor) - 1);
+  transform: translate(-50%,-50%); opacity: .75;
+  box-shadow: 0 0 14px rgba(0,200,255,.45);
+  transition: width .15s, height .15s, border-color .15s, opacity .15s, box-shadow .15s;
+}
+body:has(a:hover) #cur, body:has(button:hover) #cur { width: 6px; height: 6px; background: var(--color-cyan2); box-shadow: 0 0 12px rgba(0,229,255,.7); }
+body:has(a:hover) #cur-r, body:has(button:hover) #cur-r { width: 38px; height: 38px; border-color: var(--color-cyan2); opacity: .55; box-shadow: 0 0 18px rgba(0,229,255,.55); }
+
+/* Ocultar cursor custom em touch */
+@media (pointer: coarse) {
+  #cur, #cur-r { display: none; }
+  body { cursor: auto; }
+  button, a { cursor: pointer; }
+}
