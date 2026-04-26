@@ -1,5 +1,17 @@
 /* base.css */
+html, body { background: var(--color-bg); }
 #c { position: fixed; inset: 0; z-index: var(--z-canvas); width: 100vw; height: 100vh; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,207,255,0.22); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,207,255,0.48); }
+* { scrollbar-width: thin; scrollbar-color: rgba(0,207,255,0.22) transparent; }
+
+/* hero-inner wrapper — receives parallax transform */
+.hero-inner { width: 100%; }
+
 @keyframes blink    { 0%,100%{opacity:1} 50%{opacity:0} }
 @keyframes bounce   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
 @keyframes pulse    { 0%,100%{opacity:.5} 50%{opacity:1} }

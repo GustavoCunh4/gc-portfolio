@@ -1,3 +1,0 @@
-export const WHATSAPP_PHONE_LINK = 'https://wa.me/5571991156488'
-export const WHATSAPP_DISPLAY_NUMBER = '+55 71 9 9115-6488'
-

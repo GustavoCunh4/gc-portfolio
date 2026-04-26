@@ -1,15 +1,14 @@
 /* variables.css — Design Tokens */
 :root {
-  --color-bg:           #030810;
-  --color-surface:      #0a1628;
-  --color-border:       rgba(0,200,255,0.12);
-  --color-border-hover: rgba(0,200,255,0.4);
-  --color-cyan:         #00c8ff;
-  --color-cyan2:        #00e5ff;
-  --color-blue:         #0044ff;
-  --color-text:         #e8f0fe;
-  --color-muted:        rgba(255,255,255,0.45);
-  --color-dim:          rgba(255,255,255,0.22);
+  --color-bg:           #06080f;
+  --color-surface:      rgba(10, 14, 30, 0.88);
+  --color-border:       rgba(0, 207, 255, 0.12);
+  --color-border-hover: rgba(0, 207, 255, 0.40);
+  --color-accent:       #00cfff;
+  --color-accent2:      #9b59f4;
+  --color-text:         #e8edf8;
+  --color-muted:        rgba(220, 228, 250, 0.55);
+  --color-dim:          rgba(200, 215, 240, 0.30);
   --font-body:    'Outfit', sans-serif;
   --font-mono:    'Space Mono', monospace;
   --radius-sm:  6px;
@@ -19,8 +18,9 @@
   --transition-fast: 0.15s ease;
   --transition-base: 0.3s ease;
   --transition-slow: 0.55s ease;
-  --glow-cyan:   0 0 22px rgba(0,200,255,0.45);
-  --glow-sm:     0 0 10px rgba(0,200,255,0.25);
-  --shadow-card: 0 20px 55px rgba(0,0,0,0.55), 0 0 35px rgba(0,200,255,0.05);
+  --glow-cyan:   0 0 28px rgba(0, 207, 255, 0.40);
+  --glow-sm:     0 0 14px rgba(0, 207, 255, 0.26);
+  --glow-violet: 0 0 24px rgba(155, 89, 244, 0.34);
+  --shadow-card: 0 24px 70px rgba(0, 0, 0, 0.60), 0 0 40px rgba(0, 207, 255, 0.06);
   --z-canvas: 0; --z-panels: 400; --z-hud: 500; --z-nav: 600; --z-cursor: 9999;
 }

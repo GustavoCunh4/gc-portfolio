@@ -3,11 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Gustavo Cunha — Full Stack Developer. Construo sistemas que funcionam, do frontend ao backend." />
-    <meta name="theme-color" content="#030810" />
+    <meta
+      name="description"
+      content="Gustavo Cunha — Full Stack Developer. Aplicações web modernas, APIs robustas e interfaces de alta qualidade."
+    />
+    <meta name="theme-color" content="#f8f4ef" />
     <title>Gustavo Cunha — Full Stack Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@400;600;700;900&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="src/css/reset.css" />
     <link rel="stylesheet" href="src/css/variables.css" />
     <link rel="stylesheet" href="src/css/base.css" />
@@ -19,151 +25,162 @@
     <link rel="stylesheet" href="src/css/responsive.css" />
   </head>
   <body>
-    <!-- Custom Cursor (hidden on touch) -->
     <div id="cur" aria-hidden="true"></div>
     <div id="cur-r" aria-hidden="true"></div>
 
-    <!-- Three.js Canvas -->
     <canvas id="c" aria-hidden="true"></canvas>
 
-    <!-- ── NAV ── -->
-    <nav id="main-nav" role="navigation" aria-label="Navegação principal" data-i18n-aria="nav.aria">
-      <a href="#" class="nav-logo" aria-label="Gustavo Cunha">
-        <img src="/assets/projects/gc-logo.png" alt="GC" class="nav-logo-img" />
-      </a>
+    <nav id="main-nav" role="navigation" aria-label="Navegação principal">
+      <a href="#" class="nav-logo" aria-label="Voltar ao início" onclick="window.nav.goTo(0);return false;"><img src="src/imgs/GC-Transparent.png" alt="GC" /></a>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <div class="nav-right" id="nav-menu">
         <ul class="nav-links" role="list">
-          <li><a href="#" onclick="window.nav.goTo(0);closeMenu();return false;" data-i18n="nav.hero">Hero</a></li>
-          <li><a href="#" onclick="window.nav.goTo(1);closeMenu();return false;" data-i18n="nav.about">Sobre</a></li>
-          <li><a href="#" onclick="window.nav.goTo(2);closeMenu();return false;" data-i18n="nav.skills">Skills</a></li>
-          <li><a href="#" onclick="window.nav.goTo(3);closeMenu();return false;" data-i18n="nav.projects">Projetos</a></li>
+          <li><a href="#" onclick="window.nav.goTo(0);closeMenu();return false;">Hero</a></li>
+          <li><a href="#" onclick="window.nav.goTo(1);closeMenu();return false;">Sobre</a></li>
+          <li><a href="#" onclick="window.nav.goTo(2);closeMenu();return false;">Skills</a></li>
+          <li><a href="#" onclick="window.nav.goTo(3);closeMenu();return false;">Projetos</a></li>
         </ul>
-        <div class="lang-switch" role="group" aria-label="Idioma" data-i18n-aria="lang.aria">
-          <button class="lang-btn is-active" type="button" data-lang="pt" aria-label="Português">
-            <span class="flag-emoji" aria-hidden="true">🇧🇷</span>
-            <span class="lang-code">PT</span>
-          </button>
-          <button class="lang-btn" type="button" data-lang="en" aria-label="English">
-            <span class="flag-emoji" aria-hidden="true">🇺🇸</span>
-            <span class="lang-code">EN</span>
-          </button>
-        </div>
-        <button class="nav-btn" onclick="window.nav.goTo(4);closeMenu();" data-i18n="nav.contact_btn">Contato</button>
+        <button class="nav-btn" onclick="window.nav.goTo(4);closeMenu();">Contato</button>
       </div>
     </nav>
 
-    <!-- ── HUD ── -->
-    <div id="hud-scroll" aria-label="Role para explorar" data-i18n-aria="hud.scroll_aria">
-      <span data-i18n="hud.scroll">Scroll To Explore</span> <span class="arrow" aria-hidden="true">↓</span>
-    </div>
-    <div id="hud-section" aria-live="polite" data-i18n="section.hero">Hero</div>
-    <div id="hud-progress" role="tablist" aria-label="Seções">
-      <button class="prog-dot active" onclick="window.nav.goTo(0)" aria-label="Hero" data-i18n-aria="nav.hero"></button>
-      <button class="prog-dot" onclick="window.nav.goTo(1)" aria-label="Sobre" data-i18n-aria="nav.about"></button>
-      <button class="prog-dot" onclick="window.nav.goTo(2)" aria-label="Skills" data-i18n-aria="nav.skills"></button>
-      <button class="prog-dot" onclick="window.nav.goTo(3)" aria-label="Projetos" data-i18n-aria="nav.projects"></button>
-      <button class="prog-dot" onclick="window.nav.goTo(4)" aria-label="Contato" data-i18n-aria="nav.contact_btn"></button>
-    </div>
+    <div id="hud-section" aria-live="polite">Hero</div>
 
-    <!-- ══════════════════════════════
-         PANELS
-    ══════════════════════════════ -->
-
-    <!-- PANEL 0: HERO -->
     <section class="panel" id="p-hero" aria-label="Apresentação">
-      <p class="hero-tag" data-i18n="hero.tag">// gc corporation</p>
-      <h1 class="hero-name">Gustavo<br /><span>Cunha</span></h1>
-      <p class="hero-role"><span id="role-typed">Full Stack Developer</span> <span class="blink" aria-hidden="true"></span></p>
-      <p class="hero-desc" data-i18n-html="hero.desc">
-        <em>Construo sistemas que funcionam</em> — A parte que você vê,
-        a parte que você não vê — faço as duas funcionarem juntas.
-      </p>
-      <div class="hero-btns">
-        <button class="btn-primary" onclick="window.nav.goTo(3)" data-i18n="hero.cta_projects">Ver projetos</button>
-        <button class="btn-secondary" onclick="window.nav.goTo(4)" data-i18n="hero.cta_contact">Entrar em contato</button>
+      <div class="hero-inner">
+        <p class="hero-tag">// gc corporation</p>
+        <h1 class="hero-name">Gustavo<br /><span>Cunha</span></h1>
+        <div class="hero-status" aria-label="Disponibilidade">
+          <span class="status-dot" aria-hidden="true"></span>
+          disponível para projetos
+        </div>
+        <p class="hero-role">Full Stack Developer · APIs · Web Apps <span class="blink" aria-hidden="true"></span></p>
+        <p class="hero-desc">
+          <em>Desenvolvedor Full Stack em formação em Engenharia de Computação</em> com foco em
+          aplicações web modernas, APIs robustas e interfaces de alta qualidade, conectando produto,
+          backend e deploy com foco em entrega.
+        </p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="window.nav.goTo(3)">Ver projetos</button>
+          <button class="btn-secondary" onclick="window.nav.goTo(4)">Entrar em contato</button>
+        </div>
       </div>
     </section>
 
-    <!-- PANEL 1: SOBRE -->
     <section class="panel" id="p-about" aria-label="Sobre mim">
       <div class="panel-card">
-        <p class="p-tag" data-i18n="about.tag">// sobre</p>
-        <h2 class="p-title" data-i18n="about.title">Minha jornada</h2>
-        <p class="p-desc" data-i18n="about.desc">Sou movido por desafios que importam. Gosto de entender o problema antes de escrever a primeira linha — e de só parar quando a entrega faz sentido de verdade.</p>
+        <p class="p-tag">// sobre</p>
+        <h2 class="p-title">Minha jornada</h2>
+        <p class="p-desc">
+          Atuo na construção de soluções end-to-end, do frontend ao backend, com experiência
+          prática em React, TypeScript, Python, Node.js e contato crescente com DevOps,
+          monitoramento e arquitetura orientada à entrega.
+        </p>
         <div class="exp-item">
-          <div class="exp-role" data-i18n="about.exp1.role">Qualidade e Automação</div>
+          <div class="exp-role">Estágio em Qualidade & Desenvolvimento</div>
           <div class="exp-company">IPQ Tecnologia</div>
-          <div class="exp-date" data-i18n="about.exp1.date">Jan 2026 → atual · Salvador, BA</div>
-          <div class="mini-tags"><span class="mt">Python</span><span class="mt">React</span><span class="mt">TypeScript</span><span class="mt">CFTV</span></div>
+          <div class="exp-date">Jan 2026 → atual · Salvador, BA</div>
+          <div class="mini-tags">
+            <span class="mt">Dashboards Web</span><span class="mt">Zabbix</span
+            ><span class="mt">Grafana</span><span class="mt">Git/GitHub</span>
+          </div>
         </div>
         <div class="exp-item">
-          <div class="exp-role" data-i18n="about.exp2.role">Sistemas Especialistas</div>
+          <div class="exp-role">Estagiário em Sistemas Especialistas</div>
           <div class="exp-company">Senai CIMATEC</div>
-          <div class="exp-date" data-i18n="about.exp2.date">Jan 2025 – Dez 2025 · Salvador, BA</div>
-          <div class="mini-tags"><span class="mt">FastAPI</span><span class="mt">React</span><span class="mt">Tailwind</span><span class="mt">Scrum</span></div>
+          <div class="exp-date">Jan 2025 – Dez 2025 · Salvador, BA</div>
+          <div class="mini-tags">
+            <span class="mt">FastAPI</span><span class="mt">React</span
+            ><span class="mt">Docker</span><span class="mt">Scrum</span>
+          </div>
         </div>
         <div class="exp-item">
-          <div class="exp-role" data-i18n="about.exp3.role">Desenvolvimento e Gestão</div>
+          <div class="exp-role">Desenvolvimento e Gestão</div>
           <div class="exp-company">CIMATEC Júnior</div>
-          <div class="exp-date" data-i18n="about.exp3.date">Nov 2023 – Jan 2025 · Salvador, BA</div>
-          <div class="mini-tags"><span class="mt">React</span><span class="mt">JavaScript</span><span class="mt">HTML</span><span class="mt">CSS</span></div>
-        </div>
-        <div class="exp-item">
-          <div class="exp-role" data-i18n="about.lang.title">Idiomas</div>
-          <div class="lang-tags">
-            <span class="lang-tag" data-i18n="about.lang.pt">Português — Fluente</span>
-            <span class="lang-tag" data-i18n="about.lang.en">Inglês — Avançado</span>
-            <span class="lang-tag" data-i18n="about.lang.es">Espanhol — Básico</span>
+          <div class="exp-date">Nov 2023 – Jan 2025 · Salvador, BA</div>
+          <div class="mini-tags">
+            <span class="mt">Websites</span><span class="mt">Apps</span
+            ><span class="mt">Automação</span><span class="mt">Requisitos</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PANEL 2: SKILLS -->
     <section class="panel" id="p-skills" aria-label="Habilidades técnicas">
       <div class="panel-card">
-        <p class="p-tag" data-i18n="skills.tag">// habilidades</p>
-        <h2 class="p-title" data-i18n="skills.title">Stack Técnico</h2>
+        <p class="p-tag">// habilidades</p>
+        <h2 class="p-title">Stack Técnico</h2>
         <div class="skills-grid">
-          <div class="sk-card"><div class="sk-cat" data-i18n="skills.cat.languages">Linguagens</div><div class="sk-tags"><span class="sk-t">Python</span><span class="sk-t">TypeScript</span><span class="sk-t">JavaScript</span></div></div>
-          <div class="sk-card"><div class="sk-cat" data-i18n="skills.cat.frontend">Frontend</div><div class="sk-tags"><span class="sk-t">React</span><span class="sk-t">Next.js</span><span class="sk-t">Tailwind</span></div></div>
-          <div class="sk-card"><div class="sk-cat" data-i18n="skills.cat.backend">Backend</div><div class="sk-tags"><span class="sk-t">Node.js</span><span class="sk-t">FastAPI</span><span class="sk-t">Express</span></div></div>
-          <div class="sk-card"><div class="sk-cat" data-i18n="skills.cat.data_cloud">Dados & Cloud</div><div class="sk-tags"><span class="sk-t">PostgreSQL</span><span class="sk-t">MongoDB</span><span class="sk-t">SupaBase</span></div></div>
-          <div class="sk-card"><div class="sk-cat" data-i18n="skills.cat.tools">Ferramentas</div><div class="sk-tags"><span class="sk-t">Docker</span><span class="sk-t">Git</span><span class="sk-t">Jira</span></div></div>
-          <div class="sk-card"><div class="sk-cat" data-i18n="skills.cat.interests">Interesses</div><div class="sk-tags"><span class="sk-t" data-i18n="skills.interest.ai_agents">IA</span><span class="sk-t">Linux</span><span class="sk-t">Cloud</span></div></div>
+          <div class="sk-card">
+            <div class="sk-cat">Linguagens</div>
+            <div class="sk-tags">
+              <span class="sk-t">Python</span><span class="sk-t">TypeScript</span
+              ><span class="sk-t">JavaScript</span>
+            </div>
+          </div>
+          <div class="sk-card">
+            <div class="sk-cat">Frontend</div>
+            <div class="sk-tags">
+              <span class="sk-t">React</span><span class="sk-t">Next.js</span
+              ><span class="sk-t">Tailwind</span>
+            </div>
+          </div>
+          <div class="sk-card">
+            <div class="sk-cat">Backend</div>
+            <div class="sk-tags">
+              <span class="sk-t">Node.js</span><span class="sk-t">FastAPI</span
+              ><span class="sk-t">REST APIs</span>
+            </div>
+          </div>
+          <div class="sk-card">
+            <div class="sk-cat">Dados & Cloud</div>
+            <div class="sk-tags">
+              <span class="sk-t">PostgreSQL</span><span class="sk-t">MongoDB</span
+              ><span class="sk-t">Redis</span>
+            </div>
+          </div>
+          <div class="sk-card">
+            <div class="sk-cat">Ferramentas</div>
+            <div class="sk-tags">
+              <span class="sk-t">Docker</span><span class="sk-t">GitHub Actions</span
+              ><span class="sk-t">Vercel</span><span class="sk-t">Linux</span>
+            </div>
+          </div>
+          <div class="sk-card">
+            <div class="sk-cat">Monitoramento</div>
+            <div class="sk-tags">
+              <span class="sk-t">Zabbix</span><span class="sk-t">Grafana</span
+              ><span class="sk-t">Power BI</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PANEL 3: PROJETOS (Carrossel 3D orbital) -->
     <section class="panel" id="p-projects" aria-label="Projetos em destaque">
       <div class="proj-header">
-        <p class="p-tag" data-i18n="projects.tag">// projetos</p>
-        <h2 class="p-title" data-i18n="projects.title">Em Destaque</h2>
-        <p class="proj-subtitle" data-i18n="projects.subtitle">Clique no card para ver mais</p>
+        <p class="p-tag">// projetos</p>
+        <h2 class="p-title">Em Destaque</h2>
+        <p class="proj-subtitle">Clique no card para ver mais</p>
       </div>
 
-      <!-- Carrossel orbital -->
       <div class="orbital-carousel" id="orbital-carousel" aria-label="Carrossel de projetos">
         <div class="orbital-track" id="orbital-track">
-
-          <!-- Card 1: Alpha Clean -->
-          <div class="orb-card" data-index="0" role="article" tabindex="0" aria-label="Projeto Alpha Clean" data-i18n-aria="projects.alpha.aria">
+          <div class="orb-card" data-index="0" role="article" tabindex="0" aria-label="Projeto Alpha Clean">
             <div class="orb-card-inner">
-              <div class="orb-thumb orb-thumb--alpha orb-thumb--image">
+              <div class="orb-thumb orb-thumb--alpha">
                 <div class="orb-browser-bar"><span></span><span></span><span></span></div>
                 <div class="orb-thumb-content">
                   <div class="orb-thumb-icon">🚗</div>
                   <div class="orb-thumb-label">Alpha Clean</div>
-                  <div class="orb-thumb-sub" data-i18n="projects.alpha.sub">Sistema de Agendamentos</div>
+                  <div class="orb-thumb-sub">Sistema de Agendamentos</div>
                 </div>
               </div>
               <div class="orb-body">
                 <h3 class="orb-name">Alpha Clean</h3>
-                <p class="orb-desc" data-i18n="projects.alpha.desc">Sistema de gestão para lava-rápido com agendamentos, painel admin e automações.</p>
+                <p class="orb-desc">Sistema de gestão para lava-rápido com agendamentos, painel admin e automações.</p>
                 <div class="orb-tech">
                   <span class="tech-badge">Next.js</span>
                   <span class="tech-badge">TypeScript</span>
@@ -173,31 +190,30 @@
                 <div class="orb-links">
                   <a href="https://alpha-clean-pearl.vercel.app/" target="_blank" rel="noopener" class="orb-link orb-link--demo">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    <span data-i18n="projects.link.site">Ver site</span>
+                    Ver site
                   </a>
                   <a href="https://github.com/TTG-Alpha-Clean" target="_blank" rel="noopener" class="orb-link orb-link--code">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                    <span data-i18n="projects.link.github">GitHub</span>
+                    GitHub
                   </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Card 2: Stanchi Seguros -->
-          <div class="orb-card" data-index="1" role="article" tabindex="0" aria-label="Projeto Stanchi Seguros" data-i18n-aria="projects.stanchi.aria">
+          <div class="orb-card" data-index="1" role="article" tabindex="0" aria-label="Projeto Stanchi Seguros">
             <div class="orb-card-inner">
-              <div class="orb-thumb orb-thumb--stanchi orb-thumb--image">
+              <div class="orb-thumb orb-thumb--stanchi">
                 <div class="orb-browser-bar"><span></span><span></span><span></span></div>
                 <div class="orb-thumb-content">
                   <div class="orb-thumb-icon">🛡️</div>
                   <div class="orb-thumb-label">Stanchi Seguros</div>
-                  <div class="orb-thumb-sub" data-i18n="projects.stanchi.sub">Solução em Seguros</div>
+                  <div class="orb-thumb-sub">Solução em Seguros</div>
                 </div>
               </div>
               <div class="orb-body">
                 <h3 class="orb-name">Stanchi Seguros</h3>
-                <p class="orb-desc" data-i18n="projects.stanchi.desc">Site institucional para corretora com cotação personalizada, portabilidade e integração WhatsApp.</p>
+                <p class="orb-desc">Site institucional para corretora com cotação personalizada, portabilidade e integração WhatsApp.</p>
                 <div class="orb-tech">
                   <span class="tech-badge">React</span>
                   <span class="tech-badge">TypeScript</span>
@@ -207,31 +223,30 @@
                 <div class="orb-links">
                   <a href="https://stanchi-seguros.vercel.app/" target="_blank" rel="noopener" class="orb-link orb-link--demo">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    <span data-i18n="projects.link.site">Ver site</span>
+                    Ver site
                   </a>
                   <a href="https://github.com/GustavoCunh4/StanchiSeguros" target="_blank" rel="noopener" class="orb-link orb-link--code">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                    <span data-i18n="projects.link.github">GitHub</span>
+                    GitHub
                   </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Card 3: JQCC Dashboard -->
-          <div class="orb-card" data-index="2" role="article" tabindex="0" aria-label="Projeto JQCC Dashboard" data-i18n-aria="projects.jqcc.aria">
+          <div class="orb-card" data-index="2" role="article" tabindex="0" aria-label="Projeto JQCC Dashboard">
             <div class="orb-card-inner">
-              <div class="orb-thumb orb-thumb--jqcc orb-thumb--image">
+              <div class="orb-thumb orb-thumb--jqcc">
                 <div class="orb-browser-bar"><span></span><span></span><span></span></div>
                 <div class="orb-thumb-content">
                   <div class="orb-thumb-icon">📊</div>
                   <div class="orb-thumb-label">JQCC Dashboard</div>
-                  <div class="orb-thumb-sub" data-i18n="projects.jqcc.sub">KPIs Executivos</div>
+                  <div class="orb-thumb-sub">KPIs Executivos</div>
                 </div>
               </div>
               <div class="orb-body">
                 <h3 class="orb-name">JQCC Dashboard</h3>
-                <p class="orb-desc" data-i18n="projects.jqcc.desc">Plataforma de KPIs para gestão de qualidade com integração ao Jira, gráficos em tempo real e análise de fluxo.</p>
+                <p class="orb-desc">Plataforma de KPIs para gestão de qualidade com integração ao Jira, gráficos em tempo real e análise de fluxo.</p>
                 <div class="orb-tech">
                   <span class="tech-badge">React</span>
                   <span class="tech-badge">FastAPI</span>
@@ -241,78 +256,64 @@
                 <div class="orb-links">
                   <a href="https://jqcc-frontend-omts.onrender.com/" target="_blank" rel="noopener" class="orb-link orb-link--demo">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    <span data-i18n="projects.link.site">Ver site</span>
+                    Ver site
                   </a>
                   <a href="https://github.com/GustavoCunh4/Jira-Qualidade" target="_blank" rel="noopener" class="orb-link orb-link--code">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-                    <span data-i18n="projects.link.github">GitHub</span>
+                    GitHub
                   </a>
                 </div>
               </div>
             </div>
           </div>
+        </div>
 
-        </div><!-- /orbital-track -->
-
-        <!-- Controls -->
-        <button class="orb-btn orb-btn--prev" id="orb-prev" aria-label="Projeto anterior" data-i18n-aria="projects.prev">&#8592;</button>
-        <button class="orb-btn orb-btn--next" id="orb-next" aria-label="Próximo projeto" data-i18n-aria="projects.next">&#8594;</button>
+        <button class="orb-btn orb-btn--prev" id="orb-prev" aria-label="Projeto anterior">&#8592;</button>
+        <button class="orb-btn orb-btn--next" id="orb-next" aria-label="Próximo projeto">&#8594;</button>
         <div class="orb-dots" id="orb-dots" role="tablist">
-          <button class="orb-dot active" data-idx="0" aria-label="Alpha Clean" data-i18n-aria="projects.alpha.name"></button>
-          <button class="orb-dot" data-idx="1" aria-label="Stanchi Seguros" data-i18n-aria="projects.stanchi.name"></button>
-          <button class="orb-dot" data-idx="2" aria-label="JQCC Dashboard" data-i18n-aria="projects.jqcc.name"></button>
+          <button class="orb-dot active" data-idx="0" aria-label="Alpha Clean"></button>
+          <button class="orb-dot" data-idx="1" aria-label="Stanchi Seguros"></button>
+          <button class="orb-dot" data-idx="2" aria-label="JQCC Dashboard"></button>
         </div>
       </div>
     </section>
 
-    <!-- PANEL 4: CONTATO -->
     <section class="panel" id="p-contact" aria-label="Contato">
       <div class="panel-card contact-card">
-        <p class="p-tag" style="text-align:center" data-i18n="contact.tag">// contato</p>
-        <h2 class="contact-big" data-i18n-html="contact.big">Vamos<br /><span>construir</span><br />juntos?</h2>
-        <p class="contact-sub" data-i18n="contact.sub">Aberto a projetos, freelas e parcerias com foco em execução e resultado.</p>
+        <p class="p-tag" style="text-align:center">// contato</p>
+        <h2 class="contact-big">Vamos<br /><span>construir</span><br />juntos?</h2>
+        <p class="contact-sub">
+          Aberto a oportunidades em desenvolvimento full stack, backend e produtos web com foco em
+          qualidade técnica, ownership e execução.
+        </p>
         <div class="contact-btns">
           <a href="mailto:luizgustavocunha.dev@gmail.com" class="cb">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
-            <span data-i18n="contact.email">Email</span>
+            Email
           </a>
           <a href="https://github.com/GustavoCunh4" target="_blank" rel="noopener" class="cb">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-            <span data-i18n="contact.github">GitHub</span>
+            GitHub
           </a>
-          <a href="https://www.linkedin.com/in/luiz-gustavo-santos-cunha-854988256/" target="_blank" rel="noopener" class="cb">
+          <a href="https://linkedin.com/in/gustavocunha" target="_blank" rel="noopener" class="cb">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-            <span data-i18n="contact.linkedin">LinkedIn</span>
+            LinkedIn
           </a>
         </div>
-        <a
-          class="cb cb--whatsapp"
-          href="https://wa.me/5571991156488?text=Ol%C3%A1%20guga%2C%20tudo%20bom%3F%20Gostaria%20de%20falar%20de%20um%20projeto%20com%20voc%C3%AA%21"
-          target="_blank"
-          rel="noopener"
-          data-i18n="contact.whatsapp"
-        >Falar no WhatsApp</a>
+        <p class="contact-phone">(71) 9 9115-6488</p>
       </div>
     </section>
 
-    <!-- App entry point (ES Modules) -->
     <script type="module" src="src/js/main.js"></script>
     <script>
       function closeMenu() {
         document.getElementById('nav-menu').classList.remove('open');
-        document.getElementById('nav-hamburger').setAttribute('aria-expanded','false');
+        document.getElementById('nav-hamburger').setAttribute('aria-expanded', 'false');
       }
       document.getElementById('nav-hamburger').addEventListener('click', function() {
         const menu = document.getElementById('nav-menu');
         const open = menu.classList.toggle('open');
         this.setAttribute('aria-expanded', open);
-      });
-      document.addEventListener('click', function(e) {
-        const menu = document.getElementById('nav-menu');
-        const btn = document.getElementById('nav-hamburger');
-        if (!menu.classList.contains('open')) return;
-        if (menu.contains(e.target) || btn.contains(e.target)) return;
-        closeMenu();
       });
     </script>
   </body>
