@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 680" role="img" aria-labelledby="title">
+  <title id="title">Nucleo tecnologico abstrato</title>
+  <defs>
+    <radialGradient id="a">
+      <stop stop-color="#00cfff" stop-opacity=".28"/>
+      <stop offset=".55" stop-color="#00cfff" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#00cfff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="b">
+      <stop stop-color="#8b5cf6" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="465" cy="360" rx="270" ry="250" fill="url(#a)"/>
+  <ellipse cx="610" cy="260" rx="180" ry="160" fill="url(#b)"/>
+  <g fill="none" stroke="#00cfff" stroke-opacity=".35">
+    <circle cx="465" cy="340" r="102"/>
+    <circle cx="465" cy="340" r="148" stroke-dasharray="3 12"/>
+    <ellipse cx="465" cy="340" rx="220" ry="74" transform="rotate(-18 465 340)"/>
+    <ellipse cx="465" cy="340" rx="198" ry="58" transform="rotate(58 465 340)" stroke="#8b5cf6"/>
+    <path d="M198 491h535M252 524h424" stroke-opacity=".18"/>
+  </g>
+  <g fill="#00cfff">
+    <circle cx="465" cy="340" r="28"/>
+    <circle cx="682" cy="272" r="7"/>
+    <circle cx="324" cy="447" r="5"/>
+    <circle cx="527" cy="182" r="6"/>
+  </g>
+  <g fill="#8b5cf6">
+    <circle cx="593" cy="449" r="6"/>
+    <circle cx="312" cy="256" r="5"/>
+  </g>
+</svg>

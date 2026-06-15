@@ -1,26 +1,50 @@
-/* variables.css — Design Tokens */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('../fonts/outfit-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/space-mono-regular-latin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/space-mono-bold-latin.woff2') format('woff2');
+}
+
 :root {
-  --color-bg:           #06080f;
-  --color-surface:      rgba(10, 14, 30, 0.88);
-  --color-border:       rgba(0, 207, 255, 0.12);
-  --color-border-hover: rgba(0, 207, 255, 0.40);
-  --color-accent:       #00cfff;
-  --color-accent2:      #9b59f4;
-  --color-text:         #e8edf8;
-  --color-muted:        rgba(220, 228, 250, 0.55);
-  --color-dim:          rgba(200, 215, 240, 0.30);
-  --font-body:    'Outfit', sans-serif;
-  --font-mono:    'Space Mono', monospace;
-  --radius-sm:  6px;
-  --radius-md:  12px;
-  --radius-lg:  18px;
-  --radius-pill: 50px;
-  --transition-fast: 0.15s ease;
-  --transition-base: 0.3s ease;
-  --transition-slow: 0.55s ease;
-  --glow-cyan:   0 0 28px rgba(0, 207, 255, 0.40);
-  --glow-sm:     0 0 14px rgba(0, 207, 255, 0.26);
-  --glow-violet: 0 0 24px rgba(155, 89, 244, 0.34);
-  --shadow-card: 0 24px 70px rgba(0, 0, 0, 0.60), 0 0 40px rgba(0, 207, 255, 0.06);
-  --z-canvas: 0; --z-panels: 400; --z-hud: 500; --z-nav: 600; --z-cursor: 9999;
+  --bg: #050810;
+  --bg-deep: #03050a;
+  --surface: #0b1220;
+  --surface-soft: rgba(11, 18, 32, 0.74);
+  --surface-raised: #101a2d;
+  --text: #f6f8fc;
+  --text-soft: #a7b2c8;
+  --text-dim: #6f7d97;
+  --accent: #00cfff;
+  --accent-soft: rgba(0, 207, 255, 0.12);
+  --accent-border: rgba(0, 207, 255, 0.22);
+  --violet: #8b5cf6;
+  --line: rgba(167, 178, 200, 0.14);
+  --success: #35d577;
+  --shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+  --glow: 0 0 26px rgba(0, 207, 255, 0.22);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --font-body: 'Outfit', Arial, sans-serif;
+  --font-mono: 'Space Mono', Consolas, monospace;
+  --container: min(1180px, calc(100vw - 48px));
+  --header-height: 76px;
+  --transition: 180ms ease;
 }

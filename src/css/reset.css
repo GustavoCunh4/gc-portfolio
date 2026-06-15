@@ -1,8 +1,56 @@
-/* reset.css */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { height: 600vh; scroll-behavior: smooth; }
-body { background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); overflow-x: hidden; cursor: auto; -webkit-font-smoothing: antialiased; }
-button { border: none; background: none; font-family: inherit; cursor: pointer; }
-a { cursor: pointer; color: inherit; }
-ul { list-style: none; }
-img, canvas { display: block; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+ol,
+ul {
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img,
+svg,
+canvas {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}

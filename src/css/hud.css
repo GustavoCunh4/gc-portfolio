@@ -1,7 +1,0 @@
-/* hud.css */
-#hud-section {
-  position: fixed; right: 1.8rem; top: 50%; transform: translateY(-50%) rotate(90deg);
-  z-index: var(--z-hud); font-family: var(--font-mono); font-size: .6rem;
-  letter-spacing: .28em; text-transform: uppercase; color: rgba(0,207,255,0.35);
-  transition: all var(--transition-slow); pointer-events: none; user-select: none;
-}

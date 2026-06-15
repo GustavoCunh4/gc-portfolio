@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 64" role="img" aria-labelledby="title">
+  <title id="title">GC</title>
+  <g fill="none" stroke="#00cfff" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="8" d="M55 17a23 23 0 1 0 0 30V34H40"/>
+    <path stroke-width="8" d="M108 18a23 23 0 1 0 0 28"/>
+    <path stroke-width="3" d="M111 35h18l10-10h15M111 43h25l8 8h11"/>
+    <circle cx="160" cy="25" r="5" stroke-width="3"/>
+    <circle cx="161" cy="51" r="5" stroke-width="3"/>
+  </g>
+</svg>

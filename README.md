@@ -1,101 +1,59 @@
-# Gustavo Cunha — Portfólio 3D v2.0
+# Gustavo Cunha — Portfolio v3
 
-Portfólio pessoal com experiência 3D imersiva usando **Three.js**.
-A câmera navega por uma cena cyberpunk ao rolar a página, revelando
-cada seção como painel flutuante. Os projetos ficam em um **carrossel
-orbital 3D** com rotação automática no estilo mousham.design.
+Portfolio bilíngue com hero 3D leve e conteúdo orientado a recrutadores. A identidade visual preserva a ambientação cyberpunk, mas as seções principais seguem um fluxo vertical acessível e rápido de ler.
 
----
-
-## ✨ Novidades v2.0
-
-- ✅ **Responsivo** — mobile, tablet e desktop
-- ✅ **Carrossel orbital 3D** com auto-rotate, drag/touch e keyboard
-- ✅ **Projetos reais** com tecnologias corretas e links funcionais
-- ✅ **Performance** — menos geometrias em mobile, sem shadow maps
-- ✅ **Cursor oculto em touch** — experiência nativa em dispositivos móveis
-- ✅ **Menu hamburger** para mobile
-
----
-
-## 🚀 Como rodar
+## Executar
 
 ```bash
 npm install
-npm run dev      # → http://localhost:3000
-npm run build    # gera /dist para deploy
-npm run preview  # visualiza o build
+npm run dev      # http://localhost:3000
+npm run build    # gera dist/
+npm run preview  # valida o build local
 ```
 
----
+Requisito: Node.js `^20.19.0 || >=22.12.0`.
 
-## 📁 Estrutura
+## Estrutura
 
-```
-gustavo-portfolio/
-├── index.html
-├── src/
-│   ├── css/
-│   │   ├── variables.css   ← tokens de design (cores, fontes)
-│   │   ├── reset.css
-│   │   ├── base.css
-│   │   ├── nav.css
-│   │   ├── hud.css
-│   │   ├── cursor.css
-│   │   ├── panels.css      ← estilo de todas as seções
-│   │   ├── carousel.css    ← carrossel orbital
-│   │   └── responsive.css  ← media queries (mobile/tablet/desktop)
-│   └── js/
-│       ├── main.js
-│       └── modules/
-│           ├── scene.js    ← cena Three.js
-│           ├── camera.js
-│           ├── scroll.js   ← câmera animada por scroll
-│           ├── cursor.js
-│           └── carousel.js ← carrossel 3D orbital
-├── vite.config.js
-└── package.json
+```text
+index.html
+public/
+  favicon.svg
+  og-card.png
+src/
+  css/               estilos globais, navegação, seções e responsividade
+  fonts/             Outfit e Space Mono em WOFF2 local
+  imgs/
+    brand/           logo vetorial e fallback da hero
+    projects/        screenshots reais otimizados em AVIF e WebP
+  js/
+    data.js          projetos em destaque e projetos adicionais
+    i18n.js          textos PT-BR e EN
+    main.js          navegação, renderização e carregamento sob demanda
+    modules/scene.js cena Three.js da hero
 ```
 
----
+## Decisões Técnicas
 
-## 🎨 Personalizar
+- O idioma inicial usa `navigator.language`; alterações manuais ficam salvas em `localStorage`.
+- A cena Three.js é importada dinamicamente após a renderização do conteúdo.
+- O loop 3D pausa fora da hero e quando a aba fica oculta.
+- `prefers-reduced-motion: reduce` mantém somente o fallback estático.
+- Projetos em destaque usam screenshots reais e formatos AVIF/WebP.
+- Nenhum telefone pessoal é exibido na interface pública.
 
-### Cores — `src/css/variables.css`
-```css
---color-cyan: #00c8ff;  /* cor principal */
---color-bg:   #030810;  /* fundo */
-```
+## Personalização
 
-### Posição da câmera por seção — `src/js/modules/scroll.js`
-```js
-{ label: 'Hero', pos: [0, 3, 22], target: [0, 0, 0] }
-// pos = [x, y, z] câmera | target = ponto que ela olha
-```
+- Conteúdo e projetos: `src/js/data.js` e `src/js/i18n.js`
+- Tokens visuais: `src/css/variables.css`
+- Cena 3D: `src/js/modules/scene.js`
+- Metadados SEO e sociais: `index.html`
 
-### Adicionar projeto — `index.html`
-Copie um `.orb-card` dentro de `#orbital-track` e atualize nome, descrição, links e tecnologias.
-Adicione também um `.orb-dot` em `#orb-dots`.
-
----
-
-## 🛠 Stack
-
-| Lib        | Uso                          |
-|------------|------------------------------|
-| Three.js   | Cena 3D, câmera, animações   |
-| Vite       | Dev server + bundler         |
-| HTML/CSS   | Painéis, carrossel, layout   |
-| JS ES6+    | Módulos, scroll, carousel    |
-
----
-
-## 📦 Deploy
+## Verificação
 
 ```bash
-npm run build   # gera /dist
+npm run build
+npm audit
 ```
 
-- **Vercel** → conecte o repositório
-- **Netlify** → arraste a pasta `dist/`
-- **GitHub Pages** → use a action do Vite
+Antes de publicar, valide teclado, menu mobile, seletor de idioma e modo de movimento reduzido nos principais breakpoints.
