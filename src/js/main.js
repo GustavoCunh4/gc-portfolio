@@ -1,5 +1,6 @@
 import { featuredProjects, moreProjects } from './data.js';
 import { applyTranslations, getInitialLocale, getMessage } from './i18n.js';
+import { initScrollReveal, initCounters } from './modules/animations.js';
 
 const externalIcon = `
   <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -227,3 +228,5 @@ document.getElementById('current-year').textContent = String(new Date().getFullY
 updateLocale(locale);
 initNavigation();
 initSceneLifecycle();
+initScrollReveal();
+initCounters();
