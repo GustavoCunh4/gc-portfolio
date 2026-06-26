@@ -6,6 +6,8 @@ import asaniAvif from '../imgs/projects/asani.avif';
 import asaniWebp from '../imgs/projects/asani.webp';
 import motorlifeAvif from '../imgs/projects/motorlife.avif';
 import motorlifeWebp from '../imgs/projects/motorlife.webp';
+import gymflowAvif from '../imgs/projects/gymflow.avif';
+import gymflowWebp from '../imgs/projects/gymflow.webp';
 
 export const featuredProjects = [
   {
@@ -40,21 +42,6 @@ export const featuredProjects = [
   },
   {
     title: 'MotorLife',
-    summary: {
-      'pt-BR': 'Site institucional criado para conduzir o visitante em uma jornada clara: conhecer a marca, entender seus serviços e chegar facilmente ao contato. Um projeto focado em presença digital, confiança e conversão.',
-      en: 'Institutional website designed to guide visitors through a clear journey: discovering the brand, understanding its services, and easily getting in touch. A project focused on digital presence, trust, and conversion.'
-    },
-    image: { avif: motorlifeAvif, webp: motorlifeWebp },
-    alt: {
-      'pt-BR': 'Página inicial do site Asani',
-      en: 'MotorLife website home page'
-    },
-    stack: ['JavaScript', 'CSS', 'HTML', 'Vercel'],
-    demoUrl: 'https://motorlife-motorhomers.vercel.app/',
-    repositoryUrl: 'https://github.com/GustavoCunh4/motorlife-motorhomers'
-  },
-  {
-    title: 'GymFlow',
     summary: {
       'pt-BR': 'Site institucional criado para conduzir o visitante em uma jornada clara: conhecer a marca, entender seus serviços e chegar facilmente ao contato. Um projeto focado em presença digital, confiança e conversão.',
       en: 'Institutional website designed to guide visitors through a clear journey: discovering the brand, understanding its services, and easily getting in touch. A project focused on digital presence, trust, and conversion.'
