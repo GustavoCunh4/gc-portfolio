@@ -52,6 +52,40 @@ export const featuredProjects = [
     stack: ['JavaScript', 'CSS', 'HTML', 'Vercel'],
     demoUrl: 'https://motorlife-motorhomers.vercel.app/',
     repositoryUrl: 'https://github.com/GustavoCunh4/motorlife-motorhomers'
+  },
+  {
+    title: 'GymFlow',
+    summary: {
+      'pt-BR': 'Site institucional criado para conduzir o visitante em uma jornada clara: conhecer a marca, entender seus serviços e chegar facilmente ao contato. Um projeto focado em presença digital, confiança e conversão.',
+      en: 'Institutional website designed to guide visitors through a clear journey: discovering the brand, understanding its services, and easily getting in touch. A project focused on digital presence, trust, and conversion.'
+    },
+    image: { avif: motorlifeAvif, webp: motorlifeWebp },
+    alt: {
+      'pt-BR': 'Página inicial do site Asani',
+      en: 'MotorLife website home page'
+    },
+    stack: ['JavaScript', 'CSS', 'HTML', 'Vercel'],
+    demoUrl: 'https://motorlife-motorhomers.vercel.app/',
+    repositoryUrl: 'https://github.com/GustavoCunh4/motorlife-motorhomers'
+  },
+  {
+  title: 'GymFlow',
+  summary: {
+    'pt-BR': 'Projeto em desenvolvimento para transformar a gestão de negócios fitness em uma experiência mais simples, integrada e eficiente. O GymFlow conecta alunos, planos, professores, pagamentos e processos administrativos em um único ecossistema digital.',
+    en: 'Project in development designed to turn fitness business management into a simpler, more integrated, and efficient experience. GymFlow connects students, plans, instructors, payments, and administrative processes into a single digital ecosystem.'
+  },
+  image: { avif: gymflowAvif, webp: gymflowWebp },
+  alt: {
+    'pt-BR': 'Interface do projeto GymFlow em desenvolvimento',
+    en: 'GymFlow project interface in development'
+  },
+  stack: ['Next.js', 'TypeScript', 'NestJS', 'Prisma', 'PostgreSQL'],
+  demoUrl: null,
+  repositoryUrl: null,
+  note: {
+    'pt-BR': 'Projeto em desenvolvimento · Repositório privado · Deploy ainda não disponível',
+    en: 'Project in development · Private repository · Deploy not available yet'
+  }
   }
 ];
 
