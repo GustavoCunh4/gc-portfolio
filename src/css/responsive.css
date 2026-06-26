@@ -19,7 +19,8 @@
 
   .stack-core,
   .stack-map::before,
-  .stack-map::after {
+  .stack-map::after,
+  .stack-orbital {
     display: none;
   }
 

@@ -89,7 +89,7 @@ export const translations = {
     },
     contact: {
       eyebrow: '// contato',
-      title: 'Vamos construir algo relevante?',
+      title: 'Vamos transformar ideias em produtos reais',
       body: 'Estou aberto a oportunidades em desenvolvimento full stack, backend e produtos web.',
       email: 'Enviar email'
     },

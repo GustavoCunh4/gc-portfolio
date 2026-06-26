@@ -257,6 +257,25 @@ body::before {
 }
 
 /* ================================================================
+   ORBITAL PARTICLES + RING ROTATIONS
+   ================================================================ */
+
+@keyframes particle-orbit {
+  from { transform: translate(-50%, -50%) rotate(0deg) translateX(var(--r, 200px)); }
+  to   { transform: translate(-50%, -50%) rotate(360deg) translateX(var(--r, 200px)); }
+}
+
+@keyframes ring-spin-cw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes ring-spin-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* ================================================================
    TIMELINE MARKER GLOW
    ================================================================ */
 
