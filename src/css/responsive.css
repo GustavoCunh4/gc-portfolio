@@ -1,53 +1,42 @@
-/* ===== NEW ELEMENTS — TABLET ===== */
+/* ================================================================
+   TABLET — ≤ 1100px
+   ================================================================ */
+
 @media (max-width: 1100px) {
-  .hero-float--a {
-    top: 14%;
-    left: 0%;
-  }
-
-  .hero-float--b {
-    bottom: 16%;
-    right: 0%;
-  }
-
   .statement p {
     font-size: clamp(1.85rem, 4.2vw, 3.4rem);
   }
-}
-
-@media (max-width: 1040px) {
-  .hero-grid {
-    grid-template-columns: minmax(410px, 0.9fr) minmax(360px, 1.1fr);
-  }
-
-  .hero h1 {
-    font-size: clamp(4.5rem, 10vw, 6.7rem);
-  }
-
-  .featured-grid {
-    grid-template-columns: 1fr;
-  }
 
   .project-card {
-    display: grid;
-    grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
-  }
-
-  .project-content > p {
-    min-height: 0;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   }
 }
 
+/* ================================================================
+   TABLET — ≤ 1040px
+   ================================================================ */
+
+@media (max-width: 1040px) {
+  .hero h1 {
+    font-size: clamp(4.5rem, 12vw, 9rem);
+  }
+
+  .section-grid--about,
+  .section-heading--split {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .section-heading--split .text-link {
+    justify-self: start;
+  }
+}
+
+/* ================================================================
+   MOBILE — ≤ 860px
+   ================================================================ */
+
 @media (max-width: 860px) {
-  /* Hide floating badges on tablet/mobile — visual clutter on small screens */
-  .hero-float {
-    display: none;
-  }
-
-  .statement p {
-    font-size: clamp(1.75rem, 5.5vw, 2.8rem);
-  }
-
   :root {
     --container: min(100% - 32px, 680px);
     --header-height: 68px;
@@ -110,83 +99,73 @@
     font-size: 0.72rem;
   }
 
-  .hero {
-    min-height: auto;
-  }
-
+  /* Hero — heavier overlay at bottom where text lives */
   .hero::before {
-    z-index: 1;
     background:
-      linear-gradient(180deg, rgba(5, 8, 16, 0.94) 0%, rgba(5, 8, 16, 0.86) 48%, rgba(5, 8, 16, 0.54) 72%, var(--bg) 100%),
-      radial-gradient(circle at 50% 72%, rgba(0, 207, 255, 0.08), transparent 20rem);
+      linear-gradient(
+        0deg,
+        rgba(5, 8, 16, 0.97) 0%,
+        rgba(5, 8, 16, 0.9)  35%,
+        rgba(5, 8, 16, 0.64) 60%,
+        rgba(5, 8, 16, 0.38) 100%
+      );
   }
 
-  .hero-grid {
-    min-height: auto;
-    grid-template-columns: 1fr;
-  }
-
-  .hero-copy {
-    padding-block: 4.6rem 0;
+  .hero-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 
   .hero h1 {
-    font-size: clamp(4rem, 16vw, 6rem);
-  }
-
-  .hero-summary {
-    max-width: 590px;
+    font-size: clamp(4rem, 16vw, 7rem);
   }
 
   .hero-proof {
-    margin-top: 2.5rem;
+    gap: 1.2rem;
   }
 
-  .hero-visual {
-    height: 430px;
-    min-height: 0;
-    margin-top: -2rem;
-  }
-
-  .hero-fallback,
-  #hero-canvas {
-    width: 720px;
-    max-width: 132vw;
-    height: 520px;
-  }
-
-  .visual-label--top {
-    top: 18%;
-    right: 7%;
-  }
-
-  .visual-label--bottom {
-    right: 12%;
-    bottom: 16%;
+  .hero-proof span {
+    max-width: 90px;
+    font-size: 0.5rem;
+    line-height: 1.4;
   }
 
   .scroll-cue {
     display: none;
   }
 
-  .section-grid--about,
-  .section-heading--split {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
-  .section-heading--split .text-link {
-    justify-self: start;
-  }
-
   .stack-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Project cards: image on top, content below */
   .project-card {
-    display: block;
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .project-media {
+    aspect-ratio: 16 / 9;
+    min-height: 0;
+  }
+
+  .project-content {
+    padding: 1.5rem 1.6rem;
+  }
+
+  .project-num {
+    font-size: clamp(5rem, 20vw, 8rem);
+  }
+
+  .statement p {
+    font-size: clamp(1.75rem, 5.5vw, 2.8rem);
   }
 }
+
+/* ================================================================
+   MOBILE — ≤ 600px
+   ================================================================ */
 
 @media (max-width: 600px) {
   :root {
@@ -223,21 +202,13 @@
     font-size: 0.54rem;
   }
 
-  .hero-copy {
-    padding-top: 3.75rem;
-  }
-
   .hero h1 {
-    font-size: clamp(3.7rem, 18vw, 5.3rem);
+    font-size: clamp(3.2rem, 15vw, 5.5rem);
   }
 
   .hero-role {
     max-width: 310px;
     line-height: 1.7;
-  }
-
-  .hero-summary {
-    font-size: 1rem;
   }
 
   .hero-actions {
@@ -247,43 +218,6 @@
   .button {
     min-height: 46px;
     padding: 0.78rem 1.05rem;
-  }
-
-  .hero-proof {
-    gap: 0.85rem;
-    justify-content: space-between;
-  }
-
-  .hero-proof span {
-    max-width: 90px;
-    font-size: 0.5rem;
-    line-height: 1.4;
-  }
-
-  .hero-visual {
-    height: 350px;
-    margin-top: -1.4rem;
-  }
-
-  .hero-fallback,
-  #hero-canvas {
-    width: 600px;
-    height: 430px;
-    max-width: 150vw;
-  }
-
-  .visual-label {
-    font-size: 0.48rem;
-  }
-
-  .visual-label--top {
-    top: 16%;
-    right: 3%;
-  }
-
-  .visual-label--bottom {
-    right: 7%;
-    bottom: 14%;
   }
 
   .about-copy p {
@@ -327,11 +261,7 @@
   }
 
   .project-content {
-    padding: 1.1rem;
-  }
-
-  .project-media {
-    aspect-ratio: 16 / 10.4;
+    padding: 1.2rem;
   }
 
   .more-card {
@@ -352,12 +282,21 @@
   }
 }
 
+/* ================================================================
+   REDUCED MOTION
+   ================================================================ */
+
 @media (prefers-reduced-motion: reduce) {
   #hero-canvas {
     display: none;
   }
 
   .hero-fallback {
-    opacity: 1;
+    opacity: 0.7;
+  }
+
+  .hero h1,
+  .hero-bottom {
+    animation: none !important;
   }
 }
