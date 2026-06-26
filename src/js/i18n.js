@@ -89,7 +89,7 @@ export const translations = {
     },
     contact: {
       eyebrow: '// contato',
-      title: 'Vamos transformar ideias em produtos reais',
+      title: 'Vamos transformar sua ideia em negócio.',
       body: 'Estou aberto a oportunidades em desenvolvimento full stack, backend e produtos web.',
       email: 'Enviar email'
     },
@@ -185,7 +185,7 @@ export const translations = {
     },
     contact: {
       eyebrow: '// contact',
-      title: 'Let’s build something relevant?',
+      title: ‘Let’s turn your idea into a business.’,
       body: 'I am open to opportunities in full stack development, backend, and web products.',
       email: 'Send email'
     },
