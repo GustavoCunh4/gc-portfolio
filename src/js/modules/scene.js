@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
-const cyan   = 0x00cfff;
-const violet = 0x8b5cf6;
+const orange = 0xff6600;
+const ember  = 0xc2410c;
 
 function createParticles(count, spread, height) {
   const positions = new Float32Array(count * 3);
@@ -12,10 +12,10 @@ function createParticles(count, spread, height) {
     positions[i * 3 + 1] = (Math.random() - 0.5) * height;
     positions[i * 3 + 2] = (Math.random() - 0.5) * spread * 0.55 - 1.5;
 
-    const useViolet = i % 5 === 0;
-    colors[i * 3]     = useViolet ? 0.55 : 0;
-    colors[i * 3 + 1] = useViolet ? 0.36 : 0.81;
-    colors[i * 3 + 2] = useViolet ? 0.96 : 1;
+    const useEmber = i % 5 === 0;
+    colors[i * 3]     = useEmber ? 0.76 : 1;
+    colors[i * 3 + 1] = useEmber ? 0.25 : 0.40;
+    colors[i * 3 + 2] = useEmber ? 0.05 : 0;
   }
 
   const geo = new THREE.BufferGeometry();
@@ -49,7 +49,7 @@ function createRing(radius, tube, color, opacity) {
 }
 
 function createGrid() {
-  const grid = new THREE.GridHelper(22, 22, cyan, cyan);
+  const grid = new THREE.GridHelper(22, 22, orange, orange);
   const mat  = grid.material;
   mat.opacity     = 0.038;
   mat.transparent = true;
@@ -84,7 +84,7 @@ export function initHeroScene(canvas) {
   const cage = new THREE.Mesh(
     new THREE.IcosahedronGeometry(1.22, 2),
     new THREE.MeshBasicMaterial({
-      color: cyan,
+      color: orange,
       transparent: true,
       opacity: 0.44,
       wireframe: true,
@@ -96,7 +96,7 @@ export function initHeroScene(canvas) {
   const knot = new THREE.Mesh(
     new THREE.TorusKnotGeometry(0.56, 0.105, 88, 10, 2, 3),
     new THREE.MeshBasicMaterial({
-      color: violet,
+      color: ember,
       transparent: true,
       opacity: 0.56,
       wireframe: true,
@@ -107,13 +107,13 @@ export function initHeroScene(canvas) {
 
   const pulse = new THREE.Mesh(
     new THREE.SphereGeometry(0.23, 18, 18),
-    new THREE.MeshBasicMaterial({ color: cyan, transparent: true, opacity: 0.92 })
+    new THREE.MeshBasicMaterial({ color: orange, transparent: true, opacity: 0.92 })
   );
 
   const glow = new THREE.Mesh(
     new THREE.SphereGeometry(0.72, 16, 16),
     new THREE.MeshBasicMaterial({
-      color: cyan,
+      color: orange,
       transparent: true,
       opacity: 0.038,
       blending: THREE.AdditiveBlending,
@@ -128,7 +128,7 @@ export function initHeroScene(canvas) {
   const outerCage = new THREE.Mesh(
     new THREE.IcosahedronGeometry(2.5, 1),
     new THREE.MeshBasicMaterial({
-      color: violet,
+      color: ember,
       transparent: true,
       opacity: 0.09,
       wireframe: true,
@@ -139,9 +139,9 @@ export function initHeroScene(canvas) {
   cluster.add(outerCage);
 
   // Rings
-  const ringA = createRing(2.1,  0.022, cyan,   0.54);
-  const ringB = createRing(3.1,  0.018, violet, 0.38);
-  const ringC = createRing(4.35, 0.013, cyan,   0.2);
+  const ringA = createRing(2.1,  0.022, orange, 0.54);
+  const ringB = createRing(3.1,  0.018, ember,  0.38);
+  const ringC = createRing(4.35, 0.013, orange, 0.2);
   ringA.rotation.x =  Math.PI / 2.8;
   ringB.rotation.x =  Math.PI / 2;
   ringB.rotation.y =  Math.PI / 4.6;
@@ -154,7 +154,7 @@ export function initHeroScene(canvas) {
   const satellites = Array.from({ length: satCount }, (_, i) => {
     const mesh = new THREE.Mesh(
       new THREE.SphereGeometry(i % 2 ? 0.062 : 0.092, 10, 10),
-      new THREE.MeshBasicMaterial({ color: i % 3 ? cyan : violet })
+      new THREE.MeshBasicMaterial({ color: i % 3 ? orange : ember })
     );
     mesh.userData = {
       angle:  (i / satCount) * Math.PI * 2,
