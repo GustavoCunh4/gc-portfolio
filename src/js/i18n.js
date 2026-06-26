@@ -35,8 +35,7 @@ export const translations = {
       signal2Value: 'interfaces, APIs, deploy',
       signal3Label: 'Ritmo',
       signal3Value: 'iterar, medir, ajustar',
-      visualLabel: 'Cena tecnológica interativa',
-      scroll: 'Explorar'
+      visualLabel: 'Cena tecnológica interativa'
     },
     about: {
       eyebrow: '// sobre',
@@ -132,8 +131,7 @@ export const translations = {
       signal2Value: 'interfaces, APIs, deploy',
       signal3Label: 'Pace',
       signal3Value: 'iterate, measure, adjust',
-      visualLabel: 'Interactive technology scene',
-      scroll: 'Explore'
+      visualLabel: 'Interactive technology scene'
     },
     about: {
       eyebrow: '// about',
