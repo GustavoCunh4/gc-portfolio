@@ -226,10 +226,6 @@
     line-height: 1.4;
   }
 
-  .scroll-cue {
-    display: none;
-  }
-
   .stack-grid {
     grid-template-columns: repeat(2, 1fr);
   }
