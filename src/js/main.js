@@ -5,6 +5,7 @@ import { initCursor } from './modules/cursor.js';
 import { initTilt } from './modules/tilt.js';
 import { initScramble } from './modules/scramble.js';
 import { initEditorialMotion, refreshEditorialMotion } from './modules/motion.js';
+import { initParticles } from './modules/particles.js';
 
 const externalIcon = `
   <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -32,38 +33,47 @@ function renderTagList(tags) {
 }
 
 function renderFeaturedProjects() {
-  featuredGrid.innerHTML = featuredProjects.map((project, index) => `
-    <article class="project-card showcase-card" data-tilt data-reveal="project">
-      <picture class="project-media">
-        <source srcset="${project.image.avif}" type="image/avif" />
-        <img
-          src="${project.image.webp}"
-          alt="${project.alt[locale]}"
-          width="960"
-          height="600"
-          loading="lazy"
-          decoding="async"
-        />
-      </picture>
-      <div class="project-content">
-        <p class="project-num" aria-hidden="true">0${index + 1}</p>
-        <p class="project-kicker">CASE / 0${index + 1}</p>
-        <div class="project-content-inner">
-          <h3>${project.title}</h3>
-          <p>${project.summary[locale]}</p>
-          ${renderTagList(project.stack)}
-          <div class="project-actions">
-            <a class="project-action" href="${project.demoUrl}" target="_blank" rel="noopener noreferrer">
+  featuredGrid.innerHTML = featuredProjects.map((project, index) => {
+    const num = String(index + 1).padStart(2, '0');
+    const dir = index % 2 === 0 ? 'ltr' : 'rtl';
+    const hasDemo = Boolean(project.demoUrl);
+    const hasRepo = Boolean(project.repositoryUrl);
+    const hasNote = Boolean(project.note);
+
+    return `
+    <article class="project-chapter" data-reveal="chapter" data-dir="${dir}">
+      <figure class="chapter-visual">
+        <div class="chapter-num-bg" aria-hidden="true">${num}</div>
+        <picture>
+          <source srcset="${project.image.avif}" type="image/avif" />
+          <img
+            src="${project.image.webp}"
+            alt="${project.alt[locale]}"
+            width="960" height="600"
+            loading="lazy" decoding="async"
+          />
+        </picture>
+      </figure>
+      <div class="chapter-body">
+        <p class="chapter-eyebrow">CASE / ${num}</p>
+        <h3 class="chapter-title">${project.title}</h3>
+        <p class="chapter-desc">${project.summary[locale]}</p>
+        ${renderTagList(project.stack)}
+        ${hasNote ? `<p class="chapter-note">${project.note[locale]}</p>` : ''}
+        ${hasDemo || hasRepo ? `
+        <div class="chapter-actions">
+          ${hasDemo ? `
+            <a class="button button--primary" href="${project.demoUrl}" target="_blank" rel="noopener noreferrer">
               ${externalIcon}<span>${getMessage(locale, 'common.demo')}</span>
-            </a>
-            <a class="project-action" href="${project.repositoryUrl}" target="_blank" rel="noopener noreferrer">
+            </a>` : ''}
+          ${hasRepo ? `
+            <a class="button button--secondary" href="${project.repositoryUrl}" target="_blank" rel="noopener noreferrer">
               ${githubIcon}<span>${getMessage(locale, 'common.code')}</span>
-            </a>
-          </div>
-        </div>
+            </a>` : ''}
+        </div>` : ''}
       </div>
-    </article>
-  `).join('');
+    </article>`;
+  }).join('');
 }
 
 function renderMoreProjects() {
@@ -242,3 +252,4 @@ initCursor();
 initTilt();
 initScramble();
 initEditorialMotion();
+initParticles();

@@ -6,6 +6,7 @@ let timelineObserver = null;
 let parallaxItems = [];
 let lastScrollY = window.scrollY;
 let ticking = false;
+let navLine = null;
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -104,6 +105,34 @@ function initSectionIndex() {
   });
 }
 
+function initNavScroll() {
+  navLine = document.createElement('div');
+  navLine.className = 'nav-line';
+  navLine.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(navLine);
+
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const id = link.getAttribute('href').slice(1);
+    const target = id ? document.getElementById(id) : null;
+    const scrollTop = !id || id === 'top';
+
+    if (!scrollTop && !target) return;
+    e.preventDefault();
+
+    navLine.classList.add('is-running');
+    setTimeout(() => {
+      if (scrollTop) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      setTimeout(() => navLine.classList.remove('is-running'), 800);
+    }, 90);
+  });
+}
+
 export function refreshEditorialMotion() {
   initReveals();
   initTimelineFocus();
@@ -115,5 +144,6 @@ export function initEditorialMotion() {
   document.documentElement.classList.add('motion-ready');
   initSectionIndex();
   initNavMagnetism();
+  initNavScroll();
   refreshEditorialMotion();
 }

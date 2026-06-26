@@ -276,6 +276,35 @@
     font-size: clamp(5rem, 20vw, 8rem);
   }
 
+  /* Project chapters mobile */
+  .project-chapter,
+  .project-chapter[data-dir="rtl"] {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .project-chapter[data-dir="rtl"] .chapter-visual,
+  .project-chapter[data-dir="rtl"] .chapter-body {
+    order: unset;
+  }
+
+  .chapter-visual {
+    aspect-ratio: 16 / 9;
+  }
+
+  .chapter-visual::after,
+  .project-chapter[data-dir="rtl"] .chapter-visual::after {
+    background: linear-gradient(to bottom, transparent 60%, var(--surface) 100%);
+  }
+
+  .chapter-body {
+    padding: 1.75rem 1.5rem 2rem;
+  }
+
+  .chapter-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
   .statement p {
     font-size: clamp(1.75rem, 5.5vw, 2.8rem);
   }
