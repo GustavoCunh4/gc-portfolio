@@ -185,7 +185,7 @@ export const translations = {
     },
     contact: {
       eyebrow: '// contact',
-      title: ‘Let’s turn your idea into a business.’,
+      title: "Let’s turn your idea into a business.",
       body: 'I am open to opportunities in full stack development, backend, and web products.',
       email: 'Send email'
     },
