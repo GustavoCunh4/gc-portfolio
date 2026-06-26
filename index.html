@@ -7,7 +7,7 @@
       name="description"
       content="Portfólio de Gustavo Cunha, desenvolvedor Full Stack especializado em aplicações web modernas, APIs robustas e entrega de produto."
     />
-    <meta name="theme-color" content="#050810" />
+    <meta name="theme-color" content="#fffaf5" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Gustavo Cunha" />
     <meta property="og:title" content="Gustavo Cunha — Full Stack Developer" />
@@ -44,7 +44,7 @@
     <header class="site-header" id="top">
       <nav class="site-nav container" aria-label="Navegação principal" data-i18n-aria-label="nav.ariaLabel">
         <a class="brand" href="#top" aria-label="Gustavo Cunha — início" data-i18n-aria-label="nav.homeLabel">
-          <img src="/src/imgs/brand/gc-logo.svg" width="91" height="32" alt="" />
+          <img src="/src/imgs/brand/gc-logo-orange.png" width="91" height="60" alt="" />
           <span class="brand-copy">
             <strong>Gustavo Cunha</strong>
             <small>Full Stack Developer</small>
@@ -106,34 +106,62 @@
             </div>
           </div>
 
-          <h1 id="hero-title">
-            <span class="hero-name-line" data-scramble>Gustavo</span>
-            <span class="hero-name-line hero-name-accent" data-scramble>Cunha</span>
-          </h1>
+          <div class="hero-stage">
+            <div class="hero-copy" data-reveal="hero">
+              <p class="hero-role" data-i18n="hero.role">Full Stack Developer · APIs · Web Apps</p>
+              <h1 id="hero-title">
+                <span class="hero-name-line" data-scramble>Gustavo</span>
+                <span class="hero-name-line hero-name-accent" data-scramble>Cunha</span>
+              </h1>
+              <p class="hero-summary" data-i18n="hero.summary">
+                Construo experiências web e APIs com foco em qualidade técnica, clareza de produto e entrega.
+              </p>
+              <div class="hero-actions">
+                <a class="button button--primary" href="#projects">
+                  <span data-i18n="hero.primaryCta">Ver projetos</span>
+                  <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 12 0m-5-5 5 5-5 5"/></svg>
+                </a>
+                <a class="button button--secondary" href="#contact" data-i18n="hero.secondaryCta">Falar comigo</a>
+              </div>
+            </div>
+
+            <aside class="hero-system" aria-label="Sinais de trabalho">
+              <div class="system-line">
+                <span data-i18n="hero.signal1Label">Produto</span>
+                <strong data-i18n="hero.signal1Value">clareza antes do efeito</strong>
+              </div>
+              <div class="system-line">
+                <span data-i18n="hero.signal2Label">Entrega</span>
+                <strong data-i18n="hero.signal2Value">interfaces, APIs, deploy</strong>
+              </div>
+              <div class="system-line">
+                <span data-i18n="hero.signal3Label">Ritmo</span>
+                <strong data-i18n="hero.signal3Value">iterar, medir, ajustar</strong>
+              </div>
+              <div class="system-pulse" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+            </aside>
+          </div>
 
           <div class="hero-bottom">
-            <p class="hero-role" data-i18n="hero.role">Full Stack Developer · APIs · Web Apps</p>
-            <div class="hero-actions">
-              <a class="button button--primary" href="#projects">
-                <span data-i18n="hero.primaryCta">Ver projetos</span>
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 12 0m-5-5 5 5-5 5"/></svg>
-              </a>
-              <a class="button button--secondary" href="#contact" data-i18n="hero.secondaryCta">Falar comigo</a>
+            <div class="hero-proof-shell" data-reveal="rise">
+              <span class="proof-label" data-i18n="hero.proofLabel">sinais de execução</span>
+              <ul class="hero-proof" role="list">
+                <li>
+                  <strong><span data-count="3" data-pad="2">03</span></strong>
+                  <span data-i18n="hero.proofProjects">cases em destaque</span>
+                </li>
+                <li>
+                  <strong><span data-count="2" data-pad="2">02</span>+</strong>
+                  <span data-i18n="hero.proofYears">anos construindo</span>
+                </li>
+                <li>
+                  <strong>∞</strong>
+                  <span data-i18n="hero.proofLearning">aprendizado contínuo</span>
+                </li>
+              </ul>
             </div>
-            <ul class="hero-proof" role="list">
-              <li>
-                <strong><span data-count="3" data-pad="2">03</span></strong>
-                <span data-i18n="hero.proofProjects">cases em destaque</span>
-              </li>
-              <li>
-                <strong><span data-count="2" data-pad="2">02</span>+</strong>
-                <span data-i18n="hero.proofYears">anos construindo</span>
-              </li>
-              <li>
-                <strong>∞</strong>
-                <span data-i18n="hero.proofLearning">aprendizado contínuo</span>
-              </li>
-            </ul>
           </div>
         </div>
 
@@ -188,6 +216,7 @@
           <div data-reveal>
             <p class="eyebrow" data-i18n="about.eyebrow">// sobre</p>
             <h2 id="about-title" data-i18n="about.title" data-scramble>Código com contexto de produto.</h2>
+            <div class="about-stamp" aria-hidden="true">GC / PRODUCT ENGINEERING</div>
           </div>
           <div class="about-copy" data-reveal data-delay="2">
             <p data-i18n="about.body1">
@@ -203,6 +232,23 @@
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m5 12 12 0m-5-5 5 5-5 5"/></svg>
             </a>
           </div>
+          <div class="principle-strip" data-reveal="rise">
+            <article>
+              <span>01</span>
+              <strong data-i18n="about.principle1Title">Contexto primeiro</strong>
+              <p data-i18n="about.principle1Body">Entender o problema antes de escolher a ferramenta.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <strong data-i18n="about.principle2Title">Interface útil</strong>
+              <p data-i18n="about.principle2Body">Menos ornamento, mais decisão clara para quem usa.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <strong data-i18n="about.principle3Title">Backend evolutivo</strong>
+              <p data-i18n="about.principle3Body">APIs organizadas para produto continuar crescendo.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -216,6 +262,10 @@
               Experiências que combinam desenvolvimento, qualidade e visão prática de produto.
             </p>
           </div>
+          <div class="experience-board" data-reveal="rise">
+            <div class="experience-rail" aria-hidden="true">
+              <span>2023</span><span>2026</span>
+            </div>
           <ol class="timeline">
             <li class="timeline-item" data-reveal data-delay="1">
               <div class="timeline-marker" aria-hidden="true"></div>
@@ -257,6 +307,7 @@
               </div>
             </li>
           </ol>
+          </div>
         </div>
       </section>
 
@@ -274,13 +325,14 @@
             <p class="eyebrow" data-i18n="stack.eyebrow">// stack</p>
             <h2 id="stack-title" data-i18n="stack.title" data-scramble>Ferramentas para construir de ponta a ponta.</h2>
           </div>
-          <div class="stack-grid">
-            <article class="stack-card" data-tilt data-reveal data-delay="1"><span>01</span><h3 data-i18n="stack.languages">Linguagens</h3><p>Python · TypeScript · JavaScript</p></article>
-            <article class="stack-card" data-tilt data-reveal data-delay="2"><span>02</span><h3>Frontend</h3><p>React · Next.js · TailwindCSS</p></article>
-            <article class="stack-card" data-tilt data-reveal data-delay="3"><span>03</span><h3>Backend</h3><p>Node.js · FastAPI · REST APIs</p></article>
-            <article class="stack-card" data-tilt data-reveal data-delay="4"><span>04</span><h3 data-i18n="stack.data">Dados &amp; Cloud</h3><p>PostgreSQL · MongoDB · Redis · Vercel</p></article>
-            <article class="stack-card" data-tilt data-reveal data-delay="5"><span>05</span><h3 data-i18n="stack.tools">Ferramentas</h3><p>Docker · GitHub Actions · Linux</p></article>
-            <article class="stack-card" data-tilt data-reveal data-delay="6"><span>06</span><h3 data-i18n="stack.monitoring">Monitoramento</h3><p>Zabbix · Grafana · Power BI</p></article>
+          <div class="stack-map" data-reveal="rise">
+            <div class="stack-core" aria-hidden="true"><span>GC</span></div>
+            <article class="stack-card stack-card--logic" data-tilt data-reveal data-delay="1"><span>01</span><h3 data-i18n="stack.languages">Linguagens</h3><p>Python · TypeScript · JavaScript</p></article>
+            <article class="stack-card stack-card--interface" data-tilt data-reveal data-delay="2"><span>02</span><h3>Frontend</h3><p>React · Next.js · TailwindCSS</p></article>
+            <article class="stack-card stack-card--service" data-tilt data-reveal data-delay="3"><span>03</span><h3>Backend</h3><p>Node.js · FastAPI · REST APIs</p></article>
+            <article class="stack-card stack-card--data" data-tilt data-reveal data-delay="4"><span>04</span><h3 data-i18n="stack.data">Dados &amp; Cloud</h3><p>PostgreSQL · MongoDB · Redis · Vercel</p></article>
+            <article class="stack-card stack-card--ops" data-tilt data-reveal data-delay="5"><span>05</span><h3 data-i18n="stack.tools">Ferramentas</h3><p>Docker · GitHub Actions · Linux</p></article>
+            <article class="stack-card stack-card--signal" data-tilt data-reveal data-delay="6"><span>06</span><h3 data-i18n="stack.monitoring">Monitoramento</h3><p>Zabbix · Grafana · Power BI</p></article>
           </div>
         </div>
       </section>
@@ -297,7 +349,7 @@
               Produtos publicados que mostram minha capacidade de transformar contexto em software funcional.
             </p>
           </div>
-          <div class="featured-grid" id="featured-projects"></div>
+          <div class="featured-grid showcase-grid" id="featured-projects"></div>
         </div>
       </section>
 
@@ -314,25 +366,35 @@
               <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg>
             </a>
           </div>
-          <div class="more-grid" id="more-projects-grid"></div>
+          <div class="more-grid lab-grid" id="more-projects-grid"></div>
         </div>
       </section>
 
       <!-- ── CONTACT ── -->
       <section class="section section--contact" id="contact" aria-labelledby="contact-title">
-        <div class="container contact-card" data-reveal>
-          <p class="eyebrow" data-i18n="contact.eyebrow">// contato</p>
-          <h2 id="contact-title" data-i18n="contact.title" data-scramble>Vamos construir algo relevante?</h2>
-          <p data-i18n="contact.body">
-            Estou aberto a oportunidades em desenvolvimento full stack, backend e produtos web.
-          </p>
-          <div class="contact-actions">
-            <a class="button button--primary" href="mailto:luizgustavocunha.dev@gmail.com">
-              <span data-i18n="contact.email">Enviar email</span>
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m4 6 8 6 8-6M4 5h16v14H4z"/></svg>
-            </a>
-            <a class="button button--secondary" href="https://linkedin.com/in/gustavocunha" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a class="button button--secondary" href="https://github.com/GustavoCunh4" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <div class="container contact-card" data-reveal="rise">
+          <div class="contact-mark" aria-hidden="true">
+            <img src="/src/imgs/brand/gc-logo-orange.png" width="160" height="106" alt="" loading="lazy" />
+          </div>
+          <div class="contact-copy">
+            <p class="eyebrow" data-i18n="contact.eyebrow">// contato</p>
+            <h2 id="contact-title" data-i18n="contact.title" data-scramble>Vamos construir algo relevante?</h2>
+            <p data-i18n="contact.body">
+              Estou aberto a oportunidades em desenvolvimento full stack, backend e produtos web.
+            </p>
+            <div class="contact-actions">
+              <a class="button button--primary" href="mailto:luizgustavocunha.dev@gmail.com">
+                <span data-i18n="contact.email">Enviar email</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m4 6 8 6 8-6M4 5h16v14H4z"/></svg>
+              </a>
+              <a class="button button--secondary" href="https://linkedin.com/in/gustavocunha" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="button button--secondary" href="https://github.com/GustavoCunh4" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+          <div class="contact-meta" aria-hidden="true">
+            <span>BUILD_READY</span>
+            <span>BA / REMOTE</span>
+            <span>FULL_STACK</span>
           </div>
         </div>
       </section>

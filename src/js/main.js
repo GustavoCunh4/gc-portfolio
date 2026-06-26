@@ -1,9 +1,10 @@
 import { featuredProjects, moreProjects } from './data.js';
 import { applyTranslations, getInitialLocale, getMessage } from './i18n.js';
-import { initScrollReveal, initCounters, initScrollProgress } from './modules/animations.js';
+import { initCounters, initScrollProgress } from './modules/animations.js';
 import { initCursor } from './modules/cursor.js';
 import { initTilt } from './modules/tilt.js';
 import { initScramble } from './modules/scramble.js';
+import { initEditorialMotion, refreshEditorialMotion } from './modules/motion.js';
 
 const externalIcon = `
   <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -32,7 +33,7 @@ function renderTagList(tags) {
 
 function renderFeaturedProjects() {
   featuredGrid.innerHTML = featuredProjects.map((project, index) => `
-    <article class="project-card" data-tilt data-reveal>
+    <article class="project-card showcase-card" data-tilt data-reveal="project">
       <picture class="project-media">
         <source srcset="${project.image.avif}" type="image/avif" />
         <img
@@ -46,6 +47,7 @@ function renderFeaturedProjects() {
       </picture>
       <div class="project-content">
         <p class="project-num" aria-hidden="true">0${index + 1}</p>
+        <p class="project-kicker">CASE / 0${index + 1}</p>
         <div class="project-content-inner">
           <h3>${project.title}</h3>
           <p>${project.summary[locale]}</p>
@@ -66,7 +68,7 @@ function renderFeaturedProjects() {
 
 function renderMoreProjects() {
   moreGrid.innerHTML = moreProjects.map(project => `
-    <article class="more-card" data-tilt>
+    <article class="more-card lab-card" data-tilt data-reveal="rise">
       <div class="more-card-header">
         <span class="more-card-label">${project.category[locale]}</span>
         <div class="more-card-links">
@@ -98,6 +100,7 @@ function updateLocale(nextLocale, persist = false) {
   updateMenuLabel();
   renderFeaturedProjects();
   renderMoreProjects();
+  refreshEditorialMotion();
 }
 
 function updateMenuLabel() {
@@ -233,9 +236,9 @@ document.getElementById('current-year').textContent = String(new Date().getFullY
 updateLocale(locale);
 initNavigation();
 initSceneLifecycle();
-initScrollReveal();
 initCounters();
 initScrollProgress();
 initCursor();
 initTilt();
 initScramble();
+initEditorialMotion();
