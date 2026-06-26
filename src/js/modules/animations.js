@@ -1,23 +1,5 @@
 const easeOutCubic = t => 1 - (1 - t) ** 3;
 
-export function initScrollReveal() {
-  const elements = document.querySelectorAll('[data-reveal]');
-  if (!elements.length) return;
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      });
-    },
-    { rootMargin: '0px 0px -56px 0px', threshold: 0.07 }
-  );
-
-  elements.forEach(el => observer.observe(el));
-}
-
 export function initCounters() {
   const elements = document.querySelectorAll('[data-count]');
   if (!elements.length) return;

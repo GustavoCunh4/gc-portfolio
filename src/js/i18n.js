@@ -28,6 +28,13 @@ export const translations = {
       proofProjects: 'cases em destaque',
       proofYears: 'anos construindo',
       proofLearning: 'aprendizado contínuo',
+      proofLabel: 'sinais de execução',
+      signal1Label: 'Produto',
+      signal1Value: 'clareza antes do efeito',
+      signal2Label: 'Entrega',
+      signal2Value: 'interfaces, APIs, deploy',
+      signal3Label: 'Ritmo',
+      signal3Value: 'iterar, medir, ajustar',
       visualLabel: 'Cena tecnológica interativa',
       scroll: 'Explorar'
     },
@@ -36,7 +43,13 @@ export const translations = {
       title: 'Código com contexto de produto.',
       body1: 'Desenvolvedor Full Stack em formação em Engenharia de Computação, com experiência prática em frontend, backend e deploy.',
       body2: 'Gosto de transformar problemas reais em soluções claras: interfaces que ajudam pessoas, APIs organizadas e produtos que podem evoluir sem perder qualidade.',
-      link: 'Conheça minha trajetória'
+      link: 'Conheça minha trajetória',
+      principle1Title: 'Contexto primeiro',
+      principle1Body: 'Entender o problema antes de escolher a ferramenta.',
+      principle2Title: 'Interface útil',
+      principle2Body: 'Menos ornamento, mais decisão clara para quem usa.',
+      principle3Title: 'Backend evolutivo',
+      principle3Body: 'APIs organizadas para produto continuar crescendo.'
     },
     experience: {
       eyebrow: '// experiência',
@@ -112,6 +125,13 @@ export const translations = {
       proofProjects: 'featured cases',
       proofYears: 'years building',
       proofLearning: 'continuous learning',
+      proofLabel: 'execution signals',
+      signal1Label: 'Product',
+      signal1Value: 'clarity before effect',
+      signal2Label: 'Delivery',
+      signal2Value: 'interfaces, APIs, deploy',
+      signal3Label: 'Pace',
+      signal3Value: 'iterate, measure, adjust',
       visualLabel: 'Interactive technology scene',
       scroll: 'Explore'
     },
@@ -120,7 +140,13 @@ export const translations = {
       title: 'Code with product context.',
       body1: 'Full Stack Developer and Computer Engineering student with hands-on experience across frontend, backend, and deployment.',
       body2: 'I enjoy turning real problems into clear solutions: interfaces that help people, organized APIs, and products that can evolve without compromising quality.',
-      link: 'Explore my journey'
+      link: 'Explore my journey',
+      principle1Title: 'Context first',
+      principle1Body: 'Understand the problem before choosing the tool.',
+      principle2Title: 'Useful interface',
+      principle2Body: 'Less ornament, clearer decisions for people using it.',
+      principle3Title: 'Evolving backend',
+      principle3Body: 'Organized APIs so the product can keep growing.'
     },
     experience: {
       eyebrow: '// experience',
