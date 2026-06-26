@@ -38,10 +38,10 @@ function splitChars(el) {
 
 function update() {
   const vH = window.innerHeight;
-  // chars start appearing when element top reaches 88% of viewport height
-  // fully visible when element top reaches 18% of viewport height
-  const startY = vH * 0.88;
-  const endY   = vH * 0.18;
+  // start typing when element enters bottom of viewport
+  // finish typing when element top reaches 55% — card still fully in view
+  const startY = vH * 0.98;
+  const endY   = vH * 0.55;
   const range  = startY - endY;
 
   targets.forEach(el => {
