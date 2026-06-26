@@ -1,6 +1,9 @@
 import { featuredProjects, moreProjects } from './data.js';
 import { applyTranslations, getInitialLocale, getMessage } from './i18n.js';
-import { initScrollReveal, initCounters } from './modules/animations.js';
+import { initScrollReveal, initCounters, initScrollProgress } from './modules/animations.js';
+import { initCursor } from './modules/cursor.js';
+import { initTilt } from './modules/tilt.js';
+import { initScramble } from './modules/scramble.js';
 
 const externalIcon = `
   <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -29,7 +32,7 @@ function renderTagList(tags) {
 
 function renderFeaturedProjects() {
   featuredGrid.innerHTML = featuredProjects.map((project, index) => `
-    <article class="project-card">
+    <article class="project-card" data-tilt data-reveal>
       <picture class="project-media">
         <source srcset="${project.image.avif}" type="image/avif" />
         <img
@@ -40,19 +43,21 @@ function renderFeaturedProjects() {
           loading="lazy"
           decoding="async"
         />
-        <span class="project-index">0${index + 1}</span>
       </picture>
       <div class="project-content">
-        <h3>${project.title}</h3>
-        <p>${project.summary[locale]}</p>
-        ${renderTagList(project.stack)}
-        <div class="project-actions">
-          <a class="project-action" href="${project.demoUrl}" target="_blank" rel="noopener noreferrer">
-            ${externalIcon}<span>${getMessage(locale, 'common.demo')}</span>
-          </a>
-          <a class="project-action" href="${project.repositoryUrl}" target="_blank" rel="noopener noreferrer">
-            ${githubIcon}<span>${getMessage(locale, 'common.code')}</span>
-          </a>
+        <p class="project-num" aria-hidden="true">0${index + 1}</p>
+        <div class="project-content-inner">
+          <h3>${project.title}</h3>
+          <p>${project.summary[locale]}</p>
+          ${renderTagList(project.stack)}
+          <div class="project-actions">
+            <a class="project-action" href="${project.demoUrl}" target="_blank" rel="noopener noreferrer">
+              ${externalIcon}<span>${getMessage(locale, 'common.demo')}</span>
+            </a>
+            <a class="project-action" href="${project.repositoryUrl}" target="_blank" rel="noopener noreferrer">
+              ${githubIcon}<span>${getMessage(locale, 'common.code')}</span>
+            </a>
+          </div>
         </div>
       </div>
     </article>
@@ -61,7 +66,7 @@ function renderFeaturedProjects() {
 
 function renderMoreProjects() {
   moreGrid.innerHTML = moreProjects.map(project => `
-    <article class="more-card">
+    <article class="more-card" data-tilt>
       <div class="more-card-header">
         <span class="more-card-label">${project.category[locale]}</span>
         <div class="more-card-links">
@@ -143,7 +148,7 @@ function handleMenuKeyboard(event) {
 
   const focusable = getMenuFocusableElements();
   const first = focusable[0];
-  const last = focusable.at(-1);
+  const last  = focusable.at(-1);
   if (event.shiftKey && document.activeElement === first) {
     event.preventDefault();
     last.focus();
@@ -167,9 +172,9 @@ function initNavigation() {
     button.addEventListener('click', () => updateLocale(button.dataset.locale, true));
   });
 
-  const sectionLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+  const sectionLinks  = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
   const linkBySection = new Map(sectionLinks.map(link => [link.getAttribute('href').slice(1), link]));
-  const sections = Array.from(linkBySection.keys()).map(id => document.getElementById(id)).filter(Boolean);
+  const sections      = Array.from(linkBySection.keys()).map(id => document.getElementById(id)).filter(Boolean);
 
   const sectionObserver = new IntersectionObserver(entries => {
     const active = entries
@@ -194,7 +199,7 @@ function supportsWebGL() {
 }
 
 async function initScene() {
-  const canvas = document.getElementById('hero-canvas');
+  const canvas      = document.getElementById('hero-canvas');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!canvas || reduceMotion || !supportsWebGL()) return;
 
@@ -230,3 +235,7 @@ initNavigation();
 initSceneLifecycle();
 initScrollReveal();
 initCounters();
+initScrollProgress();
+initCursor();
+initTilt();
+initScramble();

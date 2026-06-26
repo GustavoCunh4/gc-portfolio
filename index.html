@@ -36,6 +36,9 @@
     <title>Gustavo Cunha — Full Stack Developer</title>
   </head>
   <body>
+    <!-- Scroll progress indicator -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+
     <a class="skip-link" href="#main-content" data-i18n="skipLink">Pular para o conteúdo</a>
 
     <header class="site-header" id="top">
@@ -80,20 +83,36 @@
     </header>
 
     <main id="main-content">
-      <!-- HERO -->
+      <!-- ── HERO — full-bleed canvas ── -->
       <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-grid container">
-          <div class="hero-copy">
+        <!-- Background: 3D canvas fills the entire section -->
+        <img
+          class="hero-fallback"
+          src="/src/imgs/brand/hero-fallback.svg"
+          alt=""
+          width="860"
+          height="680"
+          fetchpriority="high"
+        />
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+        <!-- Content overlays the canvas -->
+        <div class="hero-inner container">
+          <div class="hero-top">
             <p class="eyebrow" data-i18n="hero.eyebrow">// engenharia de produto</p>
-            <h1 id="hero-title">Gustavo <span>Cunha</span></h1>
-            <p class="hero-role" data-i18n="hero.role">Full Stack Developer · APIs · Web Apps</p>
             <div class="availability">
               <span class="availability-dot" aria-hidden="true"></span>
               <span data-i18n="hero.availability">Disponível para oportunidades</span>
             </div>
-            <p class="hero-summary" data-i18n="hero.summary">
-              Construo experiências web e APIs com foco em qualidade técnica, clareza de produto e entrega.
-            </p>
+          </div>
+
+          <h1 id="hero-title">
+            <span class="hero-name-line" data-scramble>Gustavo</span>
+            <span class="hero-name-line hero-name-accent" data-scramble>Cunha</span>
+          </h1>
+
+          <div class="hero-bottom">
+            <p class="hero-role" data-i18n="hero.role">Full Stack Developer · APIs · Web Apps</p>
             <div class="hero-actions">
               <a class="button button--primary" href="#projects">
                 <span data-i18n="hero.primaryCta">Ver projetos</span>
@@ -116,47 +135,17 @@
               </li>
             </ul>
           </div>
-
-          <div class="hero-visual" aria-label="Cena tecnológica interativa" data-i18n-aria-label="hero.visualLabel">
-            <img
-              class="hero-fallback"
-              src="/src/imgs/brand/hero-fallback.svg"
-              alt=""
-              width="860"
-              height="680"
-              fetchpriority="high"
-            />
-            <canvas id="hero-canvas" aria-hidden="true"></canvas>
-            <div class="visual-label visual-label--top"><span></span> systems online</div>
-            <div class="visual-label visual-label--bottom">gc_core / 01</div>
-
-            <!-- Floating data badges -->
-            <div class="hero-float hero-float--a" aria-hidden="true">
-              <div class="hero-float-icon">//</div>
-              <div class="hero-float-body">
-                <span class="hero-float-value">Full Stack</span>
-                <span class="hero-float-label">React · Node · Python</span>
-              </div>
-            </div>
-            <div class="hero-float hero-float--b" aria-hidden="true">
-              <div class="hero-float-icon">↗</div>
-              <div class="hero-float-body">
-                <span class="hero-float-value">3 projetos</span>
-                <span class="hero-float-label">em produção</span>
-              </div>
-            </div>
-          </div>
         </div>
+
         <a class="scroll-cue" href="#about">
           <span data-i18n="hero.scroll">Explorar</span>
           <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
         </a>
       </section>
 
-      <!-- MARQUEE STRIP -->
+      <!-- ── MARQUEE ── -->
       <div class="marquee-strip" aria-hidden="true">
         <div class="marquee-track">
-          <!-- first copy -->
           <span class="marquee-item">React</span><span class="marquee-sep">·</span>
           <span class="marquee-item">TypeScript</span><span class="marquee-sep">·</span>
           <span class="marquee-item">Python</span><span class="marquee-sep">·</span>
@@ -173,7 +162,7 @@
           <span class="marquee-item">Zabbix</span><span class="marquee-sep">·</span>
           <span class="marquee-item">Grafana</span><span class="marquee-sep">·</span>
           <span class="marquee-item">Linux</span><span class="marquee-sep">·</span>
-          <!-- second copy (seamless loop) -->
+          <!-- duplicate for seamless loop -->
           <span class="marquee-item">React</span><span class="marquee-sep">·</span>
           <span class="marquee-item">TypeScript</span><span class="marquee-sep">·</span>
           <span class="marquee-item">Python</span><span class="marquee-sep">·</span>
@@ -193,12 +182,12 @@
         </div>
       </div>
 
-      <!-- ABOUT -->
+      <!-- ── ABOUT ── -->
       <section class="section section--about" id="about" aria-labelledby="about-title">
         <div class="container section-grid section-grid--about">
           <div data-reveal>
             <p class="eyebrow" data-i18n="about.eyebrow">// sobre</p>
-            <h2 id="about-title" data-i18n="about.title">Código com contexto de produto.</h2>
+            <h2 id="about-title" data-i18n="about.title" data-scramble>Código com contexto de produto.</h2>
           </div>
           <div class="about-copy" data-reveal data-delay="2">
             <p data-i18n="about.body1">
@@ -217,12 +206,12 @@
         </div>
       </section>
 
-      <!-- EXPERIENCE -->
+      <!-- ── EXPERIENCE ── -->
       <section class="section" id="experience" aria-labelledby="experience-title">
         <div class="container">
           <div class="section-heading" data-reveal>
             <p class="eyebrow" data-i18n="experience.eyebrow">// experiência</p>
-            <h2 id="experience-title" data-i18n="experience.title">Uma trajetória orientada à entrega.</h2>
+            <h2 id="experience-title" data-i18n="experience.title" data-scramble>Uma trajetória orientada à entrega.</h2>
             <p data-i18n="experience.subtitle">
               Experiências que combinam desenvolvimento, qualidade e visão prática de produto.
             </p>
@@ -236,7 +225,7 @@
               </div>
               <div class="timeline-card">
                 <p class="timeline-company">IPQ Tecnologia</p>
-                <h3 data-i18n="experience.ipq.role">Estágio em Qualidade & Desenvolvimento</h3>
+                <h3 data-i18n="experience.ipq.role">Estágio em Qualidade &amp; Desenvolvimento</h3>
                 <p data-i18n="experience.ipq.body">
                   Dashboards web, monitoramento e apoio à evolução de soluções com foco em qualidade operacional.
                 </p>
@@ -271,38 +260,38 @@
         </div>
       </section>
 
-      <!-- STATEMENT between experience and stack -->
+      <!-- ── STATEMENT ── -->
       <div class="statement section-glow">
         <div class="statement-inner" data-reveal>
           <p>Engenharia com <em>contexto.</em><br>Produto com <em>intenção.</em></p>
         </div>
       </div>
 
-      <!-- STACK -->
+      <!-- ── STACK ── -->
       <section class="section section--stack" id="stack" aria-labelledby="stack-title">
         <div class="container">
           <div class="section-heading" data-reveal>
             <p class="eyebrow" data-i18n="stack.eyebrow">// stack</p>
-            <h2 id="stack-title" data-i18n="stack.title">Ferramentas para construir de ponta a ponta.</h2>
+            <h2 id="stack-title" data-i18n="stack.title" data-scramble>Ferramentas para construir de ponta a ponta.</h2>
           </div>
           <div class="stack-grid">
-            <article class="stack-card" data-reveal data-delay="1"><span>01</span><h3 data-i18n="stack.languages">Linguagens</h3><p>Python · TypeScript · JavaScript</p></article>
-            <article class="stack-card" data-reveal data-delay="2"><span>02</span><h3>Frontend</h3><p>React · Next.js · TailwindCSS</p></article>
-            <article class="stack-card" data-reveal data-delay="3"><span>03</span><h3>Backend</h3><p>Node.js · FastAPI · REST APIs</p></article>
-            <article class="stack-card" data-reveal data-delay="4"><span>04</span><h3 data-i18n="stack.data">Dados & Cloud</h3><p>PostgreSQL · MongoDB · Redis · Vercel</p></article>
-            <article class="stack-card" data-reveal data-delay="5"><span>05</span><h3 data-i18n="stack.tools">Ferramentas</h3><p>Docker · GitHub Actions · Linux</p></article>
-            <article class="stack-card" data-reveal data-delay="6"><span>06</span><h3 data-i18n="stack.monitoring">Monitoramento</h3><p>Zabbix · Grafana · Power BI</p></article>
+            <article class="stack-card" data-tilt data-reveal data-delay="1"><span>01</span><h3 data-i18n="stack.languages">Linguagens</h3><p>Python · TypeScript · JavaScript</p></article>
+            <article class="stack-card" data-tilt data-reveal data-delay="2"><span>02</span><h3>Frontend</h3><p>React · Next.js · TailwindCSS</p></article>
+            <article class="stack-card" data-tilt data-reveal data-delay="3"><span>03</span><h3>Backend</h3><p>Node.js · FastAPI · REST APIs</p></article>
+            <article class="stack-card" data-tilt data-reveal data-delay="4"><span>04</span><h3 data-i18n="stack.data">Dados &amp; Cloud</h3><p>PostgreSQL · MongoDB · Redis · Vercel</p></article>
+            <article class="stack-card" data-tilt data-reveal data-delay="5"><span>05</span><h3 data-i18n="stack.tools">Ferramentas</h3><p>Docker · GitHub Actions · Linux</p></article>
+            <article class="stack-card" data-tilt data-reveal data-delay="6"><span>06</span><h3 data-i18n="stack.monitoring">Monitoramento</h3><p>Zabbix · Grafana · Power BI</p></article>
           </div>
         </div>
       </section>
 
-      <!-- PROJECTS -->
+      <!-- ── FEATURED PROJECTS ── -->
       <section class="section" id="projects" aria-labelledby="projects-title">
         <div class="container">
           <div class="section-heading section-heading--split" data-reveal>
             <div>
               <p class="eyebrow" data-i18n="projects.eyebrow">// projetos em destaque</p>
-              <h2 id="projects-title" data-i18n="projects.title">Cases reais, decisões reais.</h2>
+              <h2 id="projects-title" data-i18n="projects.title" data-scramble>Cases reais, decisões reais.</h2>
             </div>
             <p data-i18n="projects.subtitle">
               Produtos publicados que mostram minha capacidade de transformar contexto em software funcional.
@@ -312,13 +301,13 @@
         </div>
       </section>
 
-      <!-- MORE PROJECTS -->
+      <!-- ── MORE PROJECTS ── -->
       <section class="section section--more" id="more-projects" aria-labelledby="more-projects-title">
         <div class="container">
           <div class="section-heading section-heading--split" data-reveal>
             <div>
               <p class="eyebrow" data-i18n="moreProjects.eyebrow">// mais projetos</p>
-              <h2 id="more-projects-title" data-i18n="moreProjects.title">Amplitude técnica em evolução.</h2>
+              <h2 id="more-projects-title" data-i18n="moreProjects.title" data-scramble>Amplitude técnica em evolução.</h2>
             </div>
             <a class="text-link" href="https://github.com/GustavoCunh4" target="_blank" rel="noopener noreferrer">
               <span data-i18n="moreProjects.github">Ver GitHub completo</span>
@@ -329,11 +318,11 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
+      <!-- ── CONTACT ── -->
       <section class="section section--contact" id="contact" aria-labelledby="contact-title">
         <div class="container contact-card" data-reveal>
           <p class="eyebrow" data-i18n="contact.eyebrow">// contato</p>
-          <h2 id="contact-title" data-i18n="contact.title">Vamos construir algo relevante?</h2>
+          <h2 id="contact-title" data-i18n="contact.title" data-scramble>Vamos construir algo relevante?</h2>
           <p data-i18n="contact.body">
             Estou aberto a oportunidades em desenvolvimento full stack, backend e produtos web.
           </p>

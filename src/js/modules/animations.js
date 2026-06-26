@@ -26,13 +26,13 @@ export function initCounters() {
 
   function run(el) {
     const target = parseInt(el.dataset.count, 10);
-    const pad = el.dataset.pad ? parseInt(el.dataset.pad, 10) : 0;
+    const pad    = el.dataset.pad ? parseInt(el.dataset.pad, 10) : 0;
     const suffix = el.dataset.suffix ?? '';
-    const start = performance.now();
+    const start  = performance.now();
 
     function tick(now) {
       const progress = Math.min((now - start) / DURATION, 1);
-      const value = Math.round(target * easeOutCubic(progress));
+      const value    = Math.round(target * easeOutCubic(progress));
       el.textContent = pad ? String(value).padStart(pad, '0') + suffix : value + suffix;
       if (progress < 1) requestAnimationFrame(tick);
     }
@@ -53,4 +53,22 @@ export function initCounters() {
   );
 
   elements.forEach(el => observer.observe(el));
+}
+
+export function initScrollProgress() {
+  const bar = document.querySelector('.scroll-progress');
+  if (!bar) return;
+
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    requestAnimationFrame(() => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      const pct   = total > 0 ? (window.scrollY / total) * 100 : 0;
+      bar.style.width = pct + '%';
+      ticking = false;
+    });
+    ticking = true;
+  }, { passive: true });
 }

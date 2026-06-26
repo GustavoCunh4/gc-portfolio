@@ -3,16 +3,14 @@ import * as THREE from 'three';
 const cyan   = 0x00cfff;
 const violet = 0x8b5cf6;
 
-function createParticles(count, spread) {
+function createParticles(count, spread, height) {
   const positions = new Float32Array(count * 3);
   const colors    = new Float32Array(count * 3);
 
   for (let i = 0; i < count; i++) {
-    const radius = 2.2 + Math.random() * spread;
-    const angle  = Math.random() * Math.PI * 2;
-    positions[i * 3]     = Math.cos(angle) * radius;
-    positions[i * 3 + 1] = (Math.random() - 0.5) * 9;
-    positions[i * 3 + 2] = Math.sin(angle) * radius;
+    positions[i * 3]     = (Math.random() - 0.5) * spread;
+    positions[i * 3 + 1] = (Math.random() - 0.5) * height;
+    positions[i * 3 + 2] = (Math.random() - 0.5) * spread * 0.55 - 1.5;
 
     const useViolet = i % 5 === 0;
     colors[i * 3]     = useViolet ? 0.55 : 0;
@@ -20,16 +18,16 @@ function createParticles(count, spread) {
     colors[i * 3 + 2] = useViolet ? 0.96 : 1;
   }
 
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  geometry.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  geo.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
 
   return new THREE.Points(
-    geometry,
+    geo,
     new THREE.PointsMaterial({
-      size: 0.052,
+      size: 0.05,
       transparent: true,
-      opacity: 0.7,
+      opacity: 0.62,
       vertexColors: true,
       blending: THREE.AdditiveBlending,
       depthWrite: false,
@@ -51,13 +49,13 @@ function createRing(radius, tube, color, opacity) {
 }
 
 function createGrid() {
-  const grid = new THREE.GridHelper(14, 14, cyan, cyan);
+  const grid = new THREE.GridHelper(22, 22, cyan, cyan);
   const mat  = grid.material;
-  mat.opacity     = 0.055;
+  mat.opacity     = 0.038;
   mat.transparent = true;
   mat.blending    = THREE.AdditiveBlending;
   mat.depthWrite  = false;
-  grid.position.y = -3.8;
+  grid.position.y = -4.2;
   return grid;
 }
 
@@ -72,10 +70,15 @@ export function initHeroScene(canvas) {
   });
 
   const scene  = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(52, 1, 0.1, 80);
-  camera.position.set(0, 0.5, 11.8);
+  const camera = new THREE.PerspectiveCamera(58, 1, 0.1, 80);
+  camera.position.set(0, 0.5, 12.5);
 
-  /* ── Core group ── */
+  // ── Cluster — offset right on desktop so left text area stays clear ──
+  const cluster = new THREE.Group();
+  cluster.position.x = isMobile ? 0 : 3.2;
+  scene.add(cluster);
+
+  // Core
   const core = new THREE.Group();
 
   const cage = new THREE.Mesh(
@@ -107,7 +110,6 @@ export function initHeroScene(canvas) {
     new THREE.MeshBasicMaterial({ color: cyan, transparent: true, opacity: 0.92 })
   );
 
-  /* Inner glow halo */
   const glow = new THREE.Mesh(
     new THREE.SphereGeometry(0.72, 16, 16),
     new THREE.MeshBasicMaterial({
@@ -120,9 +122,9 @@ export function initHeroScene(canvas) {
   );
 
   core.add(cage, knot, pulse, glow);
-  scene.add(core);
+  cluster.add(core);
 
-  /* ── Outer cage (large, very subtle) ── */
+  // Outer cage
   const outerCage = new THREE.Mesh(
     new THREE.IcosahedronGeometry(2.5, 1),
     new THREE.MeshBasicMaterial({
@@ -134,9 +136,9 @@ export function initHeroScene(canvas) {
       depthWrite: false,
     })
   );
-  scene.add(outerCage);
+  cluster.add(outerCage);
 
-  /* ── Rings ── */
+  // Rings
   const ringA = createRing(2.1,  0.022, cyan,   0.54);
   const ringB = createRing(3.1,  0.018, violet, 0.38);
   const ringC = createRing(4.35, 0.013, cyan,   0.2);
@@ -145,10 +147,10 @@ export function initHeroScene(canvas) {
   ringB.rotation.y =  Math.PI / 4.6;
   ringC.rotation.x =  Math.PI / 2.25;
   ringC.rotation.y = -Math.PI / 5;
-  scene.add(ringA, ringB, ringC);
+  cluster.add(ringA, ringB, ringC);
 
-  /* ── Satellites ── */
-  const satCount  = isMobile ? 5 : 8;
+  // Satellites orbit cluster centre
+  const satCount   = isMobile ? 5 : 8;
   const satellites = Array.from({ length: satCount }, (_, i) => {
     const mesh = new THREE.Mesh(
       new THREE.SphereGeometry(i % 2 ? 0.062 : 0.092, 10, 10),
@@ -163,16 +165,15 @@ export function initHeroScene(canvas) {
     return mesh;
   });
 
-  /* ── Particles ── */
-  const particles = createParticles(isMobile ? 160 : 480, isMobile ? 5.5 : 7.5);
+  // Wide particle cloud fills entire canvas
+  const spread = isMobile ? 13 : 22;
+  const height = isMobile ? 11 : 15;
+  const count  = isMobile ? 200 : 600;
+  const particles = createParticles(count, spread, height);
   scene.add(particles);
 
-  /* ── Grid plane ── */
-  if (!isMobile) {
-    scene.add(createGrid());
-  }
+  if (!isMobile) scene.add(createGrid());
 
-  /* ── State ── */
   let frame    = 0;
   let active   = false;
   let pointerX = 0;
@@ -191,24 +192,25 @@ export function initHeroScene(canvas) {
     if (!active) return;
     const t = time * 0.001;
 
-    cage.rotation.x       =  t * 0.25;
-    cage.rotation.y       =  t * 0.40;
-    knot.rotation.x       = -t * 0.22;
-    knot.rotation.z       =  t * 0.34;
-    glow.rotation.y       =  t * 0.12;
-    outerCage.rotation.x  =  t * 0.07;
-    outerCage.rotation.y  = -t * 0.11;
+    cage.rotation.x      =  t * 0.25;
+    cage.rotation.y      =  t * 0.40;
+    knot.rotation.x      = -t * 0.22;
+    knot.rotation.z      =  t * 0.34;
+    glow.rotation.y      =  t * 0.12;
+    outerCage.rotation.x =  t * 0.07;
+    outerCage.rotation.y = -t * 0.11;
     pulse.scale.setScalar(1 + Math.sin(t * 2.4) * 0.18);
 
-    ringA.rotation.z      =  t * 0.22;
-    ringB.rotation.z      = -t * 0.16;
-    ringC.rotation.z      =  t * 0.10;
-    particles.rotation.y  =  t * 0.016;
+    ringA.rotation.z     =  t * 0.22;
+    ringB.rotation.z     = -t * 0.16;
+    ringC.rotation.z     =  t * 0.10;
+    particles.rotation.y =  t * 0.011;
 
+    const ox = cluster.position.x;
     satellites.forEach((sat, i) => {
       const angle = sat.userData.angle + t * sat.userData.speed;
       sat.position.set(
-        Math.cos(angle) * sat.userData.radius,
+        ox + Math.cos(angle) * sat.userData.radius,
         Math.sin(t * 0.8 + i) * 1.5,
         Math.sin(angle) * sat.userData.radius
       );
