@@ -303,12 +303,14 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   background: rgba(11, 18, 32, 0.58);
-  transition: border-color var(--transition), background var(--transition);
+  will-change: transform;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
 }
 
 .timeline-card:hover {
   border-color: var(--accent-border);
   background: rgba(11, 18, 32, 0.9);
+  box-shadow: 0 0 0 1px rgba(0, 207, 255, 0.08);
 }
 
 .timeline-company {
