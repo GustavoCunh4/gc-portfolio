@@ -40,8 +40,8 @@ function update() {
   const vH = window.innerHeight;
   // start typing when element enters bottom of viewport
   // finish typing when element top reaches 55% — card still fully in view
-  const startY = vH * 0.98;
-  const endY   = vH * 0.55;
+  const startY = vH * 1.0;
+  const endY   = vH * 0.72;
   const range  = startY - endY;
 
   targets.forEach(el => {
