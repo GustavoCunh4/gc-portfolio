@@ -4,6 +4,8 @@ import stanchiAvif from '../imgs/projects/stanchi-seguros.avif';
 import stanchiWebp from '../imgs/projects/stanchi-seguros.webp';
 import asaniAvif from '../imgs/projects/asani.avif';
 import asaniWebp from '../imgs/projects/asani.webp';
+import motorlifeAvif from '../imgs/projects/motorlife.avif';
+import motorlifeWebp from '../imgs/projects/motorlife.webp';
 
 export const featuredProjects = [
   {
@@ -37,19 +39,19 @@ export const featuredProjects = [
     repositoryUrl: 'https://github.com/GustavoCunh4/StanchiSeguros'
   },
   {
-    title: 'Asani',
+    title: 'MotorLife',
     summary: {
-      'pt-BR': 'Experiência institucional imersiva com direção visual própria, animações fluidas e ambientação 3D responsiva.',
-      en: 'Immersive institutional experience with a distinctive visual direction, fluid motion, and responsive 3D ambience.'
+      'pt-BR': 'Site institucional criado para conduzir o visitante em uma jornada clara: conhecer a marca, entender seus serviços e chegar facilmente ao contato. Um projeto focado em presença digital, confiança e conversão.',
+      en: 'Institutional website designed to guide visitors through a clear journey: discovering the brand, understanding its services, and easily getting in touch. A project focused on digital presence, trust, and conversion.'
     },
-    image: { avif: asaniAvif, webp: asaniWebp },
+    image: { avif: motorlifeAvif, webp: motorlifeWebp },
     alt: {
       'pt-BR': 'Página inicial do site Asani',
-      en: 'Asani website home page'
+      en: 'MotorLife website home page'
     },
-    stack: ['TypeScript', 'Three.js', 'GSAP', 'Vite'],
-    demoUrl: 'https://gustavocunh4.github.io/asani-v5/',
-    repositoryUrl: 'https://github.com/GustavoCunh4/asani-v5'
+    stack: ['JavaScript', 'CSS', 'HTML', 'Vercel'],
+    demoUrl: 'https://motorlife-motorhomers.vercel.app/',
+    repositoryUrl: 'https://github.com/GustavoCunh4/motorlife-motorhomers'
   }
 ];
 
