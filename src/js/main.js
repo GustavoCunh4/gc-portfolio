@@ -6,6 +6,7 @@ import { initTilt } from './modules/tilt.js';
 import { initScramble } from './modules/scramble.js';
 import { initEditorialMotion, refreshEditorialMotion } from './modules/motion.js';
 import { initParticles } from './modules/particles.js';
+import { initTypewriter } from './modules/typewriter.js';
 
 const externalIcon = `
   <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -56,8 +57,8 @@ function renderFeaturedProjects() {
       </figure>
       <div class="chapter-body">
         <p class="chapter-eyebrow">CASE / ${num}</p>
-        <h3 class="chapter-title">${project.title}</h3>
-        <p class="chapter-desc">${project.summary[locale]}</p>
+        <h3 class="chapter-title" data-typewriter>${project.title}</h3>
+        <p class="chapter-desc" data-typewriter>${project.summary[locale]}</p>
         ${renderTagList(project.stack)}
         ${hasNote ? `<p class="chapter-note">${project.note[locale]}</p>` : ''}
         ${hasDemo || hasRepo ? `
@@ -111,6 +112,7 @@ function updateLocale(nextLocale, persist = false) {
   renderFeaturedProjects();
   renderMoreProjects();
   refreshEditorialMotion();
+  initTypewriter();
 }
 
 function updateMenuLabel() {
@@ -253,3 +255,4 @@ initTilt();
 initScramble();
 initEditorialMotion();
 initParticles();
+initTypewriter();

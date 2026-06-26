@@ -1132,7 +1132,7 @@
 .chapter-num-bg {
   position: absolute;
   bottom: -0.06em;
-  left: 0.04em;
+  right: 0.04em;
   z-index: 2;
   font-size: clamp(5rem, 13vw, 11rem);
   font-weight: 900;
@@ -1141,6 +1141,11 @@
   color: rgba(var(--accent-rgb), 0.18);
   pointer-events: none;
   user-select: none;
+}
+
+.project-chapter[data-dir="rtl"] .chapter-num-bg {
+  right: auto;
+  left: 0.04em;
 }
 
 .chapter-visual picture {
