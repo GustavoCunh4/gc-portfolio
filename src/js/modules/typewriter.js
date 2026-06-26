@@ -1,11 +1,22 @@
 const REDUCE = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+let targets = [];
+let scrollBound = null;
+
 function splitChars(el) {
-  if (el.querySelector('.tw-char')) return; // already split
+  const existing = el.querySelectorAll('.tw-char');
+  if (existing.length) {
+    existing.forEach(c => c.classList.remove('tw-on'));
+    el._twChars = Array.from(existing);
+    el._twCount = 0;
+    return;
+  }
+
   const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
   const nodes = [];
   let n;
   while ((n = walker.nextNode())) nodes.push(n);
+
   nodes.forEach(textNode => {
     const frag = document.createDocumentFragment();
     for (const ch of textNode.textContent) {
@@ -20,65 +31,51 @@ function splitChars(el) {
     }
     textNode.parentNode.replaceChild(frag, textNode);
   });
+
+  el._twChars = Array.from(el.querySelectorAll('.tw-char'));
+  el._twCount = 0;
 }
 
-function typeIn(el) {
-  const chars = el.querySelectorAll('.tw-char');
-  const total = chars.length;
-  if (!total) return;
-  const speed = total > 80 ? 9 : total > 30 ? 22 : 38;
-  clearInterval(el._tw);
-  let i = 0;
-  el._tw = setInterval(() => {
-    if (i < total) { chars[i].classList.add('tw-on'); i++; }
-    else clearInterval(el._tw);
-  }, speed);
-}
+function update() {
+  const vH = window.innerHeight;
+  // chars start appearing when element top reaches 88% of viewport height
+  // fully visible when element top reaches 18% of viewport height
+  const startY = vH * 0.88;
+  const endY   = vH * 0.18;
+  const range  = startY - endY;
 
-function typeOut(el) {
-  const chars = el.querySelectorAll('.tw-char');
-  const total = chars.length;
-  if (!total) return;
-  const speed = total > 80 ? 5 : 12;
-  clearInterval(el._tw);
-  let i = total - 1;
-  el._tw = setInterval(() => {
-    if (i >= 0) { chars[i].classList.remove('tw-on'); i--; }
-    else clearInterval(el._tw);
-  }, speed);
-}
+  targets.forEach(el => {
+    const chars = el._twChars;
+    if (!chars || !chars.length) return;
 
-let twObs = null;
+    const top = el.getBoundingClientRect().top;
+    const progress  = Math.max(0, Math.min(1, (startY - top) / range));
+    const newCount  = Math.round(progress * chars.length);
+    const oldCount  = el._twCount;
+
+    if (newCount === oldCount) return;
+
+    if (newCount > oldCount) {
+      for (let i = oldCount; i < newCount; i++) chars[i].classList.add('tw-on');
+    } else {
+      for (let i = newCount; i < oldCount; i++) chars[i].classList.remove('tw-on');
+    }
+
+    el._twCount = newCount;
+  });
+}
 
 export function initTypewriter() {
   if (REDUCE) return;
 
-  twObs?.disconnect();
+  if (scrollBound) window.removeEventListener('scroll', scrollBound);
 
-  const targets = document.querySelectorAll('[data-typewriter]');
+  targets = Array.from(document.querySelectorAll('[data-typewriter]'));
   if (!targets.length) return;
 
-  targets.forEach(el => {
-    // Reset: remove old spans if any (after re-render)
-    const old = el.querySelectorAll('.tw-char');
-    if (old.length) old.forEach(s => s.classList.remove('tw-on'));
-    splitChars(el);
-  });
+  targets.forEach(splitChars);
 
-  twObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      const el = entry.target;
-      const above = entry.boundingClientRect.top < 0;
-      if (entry.isIntersecting) {
-        typeIn(el);
-      } else if (above) {
-        typeOut(el);
-      } else {
-        clearInterval(el._tw);
-        el.querySelectorAll('.tw-char').forEach(c => c.classList.remove('tw-on'));
-      }
-    });
-  }, { rootMargin: '-4% 0px -12% 0px', threshold: [0, 0.08, 0.3] });
-
-  targets.forEach(el => twObs.observe(el));
+  scrollBound = update;
+  window.addEventListener('scroll', scrollBound, { passive: true });
+  update();
 }
