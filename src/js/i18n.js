@@ -93,6 +93,12 @@ export const translations = {
       body: 'Estou aberto a oportunidades em desenvolvimento full stack, backend e produtos web.',
       email: 'Enviar email'
     },
+    statement: {
+      line1Prefix: 'Engenharia com',
+      line1Emphasis: 'contexto.',
+      line2Prefix: 'Produto com',
+      line2Emphasis: 'intenção.'
+    },
     footer: { copy: 'Desenvolvido com intenção, código e café.' }
   },
   en: {
@@ -188,6 +194,12 @@ export const translations = {
       title: "Let’s turn your idea into a business.",
       body: 'I am open to opportunities in full stack development, backend, and web products.',
       email: 'Send email'
+    },
+    statement: {
+      line1Prefix: 'Engineering with',
+      line1Emphasis: 'context.',
+      line2Prefix: 'Product with',
+      line2Emphasis: 'intention.'
     },
     footer: { copy: 'Built with intention, code, and coffee.' }
   }
